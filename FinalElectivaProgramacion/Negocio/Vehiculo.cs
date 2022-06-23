@@ -9,10 +9,10 @@ namespace Negocio
     public class Vehiculo
     {
         private string patente;
-        List<Suceso> sucesos;
+        List<Incidente> sucesos;
         List<Pago> pagos;
 
-        public Vehiculo(string patente, List<Suceso> sucesos, List<Pago> pagos)
+        public Vehiculo(string patente, List<Incidente> sucesos, List<Pago> pagos)
         {
             this.patente = patente;
             this.sucesos = sucesos;
@@ -20,7 +20,7 @@ namespace Negocio
         }
 
         public string Patente { get => patente; set => patente = value; }
-        public List<Suceso> Sucesos { get => sucesos; set => sucesos = value; }
+        public List<Incidente> Sucesos { get => sucesos; set => sucesos = value; }
         public List<Pago> Pagos { get => pagos; }
     }
 }

@@ -9,7 +9,7 @@ namespace Negocio
     public class DireccionTransito
     {
         private List<Infraccion> infracciones;
-        private List<Suceso> sucesos;
+        private List<Incidente> sucesos;
         private List<Pago> pagos;
         private List<Vehiculo> vehiculos;
 

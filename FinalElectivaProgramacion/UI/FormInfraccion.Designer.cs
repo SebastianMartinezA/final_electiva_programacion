@@ -33,19 +33,19 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(110, 114);
+            this.listView1.Location = new System.Drawing.Point(72, 80);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
+            this.listView1.Size = new System.Drawing.Size(159, 147);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // UserControl1
+            // FormInfraccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listView1);
-            this.Name = "UserControl1";
+            this.Name = "FormInfraccion";
             this.Size = new System.Drawing.Size(316, 330);
             this.ResumeLayout(false);
 

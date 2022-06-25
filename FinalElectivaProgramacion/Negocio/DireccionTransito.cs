@@ -9,17 +9,26 @@ namespace Negocio
     public class DireccionTransito
     {
         private List<Infraccion> infracciones;
-        private List<Incidente> incidentes;
+        private List<Suceso> sucesos;
         private List<Pago> pagos;
         private List<Vehiculo> vehiculos;
 
         public List<Infraccion> Infracciones { get => infracciones; set => infracciones = value; }
-        public List<Incidente> Incidentes { get => incidentes; set => incidentes = value; }
+        public List<Suceso> Sucesos { get => sucesos; set => sucesos = value; }
         public List<Pago> Pagos { get => pagos; set => pagos = value; }
         public List<Vehiculo> Vehiculos { get => vehiculos; set => vehiculos = value; }
 
         public DireccionTransito()
         {
+            setListsData();
+        }
+
+        private void setListsData()
+        {
+            infracciones = new List<Infraccion>();
+            sucesos = new List<Suceso>();
+            pagos = new List<Pago>();
+            vehiculos = new List<Vehiculo>();
         }
 
         public void agregarInfraccion(Infraccion inf)
@@ -30,16 +39,23 @@ namespace Negocio
         public void removerInfraccion(Infraccion inf)
         {
             this.infracciones.Remove(inf);
+            foreach (var a in Sucesos.ToList()) // Pensar, removemos los incidentes/sucesos si borramos la infraccion?
+            {
+                if (a.Infraccion == inf)
+                {
+                    Sucesos.Remove(a);
+                }
+            }
         }
 
-        public void agregarIncidente(Incidente inc)
+        public void agregarSuceso(Suceso inc)
         {
-            this.incidentes.Add(inc);
+            this.Sucesos.Add(inc);
         }
 
-        public void removerIncidente(Incidente inc)
+        public void removerSuceso(Suceso inc)
         {
-            this.incidentes.Remove(inc);
+            this.Sucesos.Remove(inc);
         }
 
         public void agregarVehiculo(Vehiculo v)

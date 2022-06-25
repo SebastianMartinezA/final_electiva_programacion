@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    public class Incidente
+    public class Suceso
     {
         private int id;
         private DateTime fecha;
         private Infraccion infraccion;
         private Vehiculo vehiculo;
 
-        public Incidente(int id, DateTime fecha, Infraccion infraccion, Vehiculo vehiculo)
+        public Suceso(int id, DateTime fecha, Infraccion infraccion, Vehiculo vehiculo)
         {
             this.id = id;
             this.fecha = fecha;

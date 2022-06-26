@@ -39,7 +39,6 @@ namespace Negocio
         {
             return infDb.modificar(this.Id, this.Descripcion, this.Importe);
         }
-
         public void eliminarInfraccionDb()
         {
             infDb.eliminar(this.Id);
@@ -48,6 +47,11 @@ namespace Negocio
         public void agregarIncidente(Incidente suc)
         {
             this.incidentes.Add(suc);
+        }
+
+        public void removerIncidente(Incidente suc)
+        {
+            this.incidentes.Remove(suc);
         }
     }
 }

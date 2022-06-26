@@ -39,11 +39,12 @@ namespace Negocio
         public void removerInfraccion(Infraccion inf)
         {
             this.infracciones.Remove(inf);
-            foreach (var a in Incidentes.ToList()) // Pensar, removemos los incidentes/incidentes si borramos la infraccion?
+            foreach (var a in Incidentes.ToList())
             {
                 if (a.Infraccion == inf)
                 {
                     Incidentes.Remove(a);
+                    a.eliminar();
                 }
             }
         }

@@ -181,6 +181,7 @@
             this.buttonMostrarIncidente.TabIndex = 7;
             this.buttonMostrarIncidente.Text = "Mostrar incidente";
             this.buttonMostrarIncidente.UseVisualStyleBackColor = true;
+            this.buttonMostrarIncidente.Click += new System.EventHandler(this.buttonMostrarIncidente_Click);
             // 
             // buttonElimIncidente
             // 
@@ -192,6 +193,7 @@
             this.buttonElimIncidente.TabIndex = 6;
             this.buttonElimIncidente.Text = "Eliminar incidente";
             this.buttonElimIncidente.UseVisualStyleBackColor = true;
+            this.buttonElimIncidente.Click += new System.EventHandler(this.buttonElimIncidente_Click);
             // 
             // buttonModifIncidente
             // 
@@ -240,6 +242,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormPrincipal";
             this.Text = "Dirección de Tránsito";
             this.tabControl1.ResumeLayout(false);

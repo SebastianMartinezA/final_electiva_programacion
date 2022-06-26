@@ -12,6 +12,10 @@ namespace Negocio
         private DateTime fecha;
         private Infraccion infraccion;
         private Vehiculo vehiculo;
+        public int Id { get => id; set => id = value; }
+        public DateTime Fecha { get => fecha; set => fecha = value; }
+        public Infraccion Infraccion { get => infraccion; set => infraccion = value; }
+        public Vehiculo Vehiculo { get => vehiculo; set => vehiculo = value; }
 
         public Incidente(int id, DateTime fecha, Infraccion infraccion, Vehiculo vehiculo)
         {
@@ -21,9 +25,11 @@ namespace Negocio
             this.vehiculo = vehiculo;
         }
 
-        public int Id { get => id; set => id = value; }
-        public DateTime Fecha { get => fecha; set => fecha = value; }
-        public Infraccion Infraccion { get => infraccion; set => infraccion = value; }
-        public Vehiculo Vehiculo { get => vehiculo; set => vehiculo = value; }
+
+        public void eliminar()
+        {
+            vehiculo.removerIncidente(this);
+            infraccion.removerIncidente(this);
+        }
     }
 }

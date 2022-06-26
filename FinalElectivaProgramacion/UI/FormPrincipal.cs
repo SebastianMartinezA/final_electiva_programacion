@@ -96,7 +96,7 @@ namespace UI
             else
             {
                 FormIncidente fi = new FormIncidente(dt.Infracciones, dt.Vehiculos);
-                //fi.prepararCrear();
+                fi.prepararCrear();
                 fi.ShowDialog();
 
                 Incidente inc = fi.Inc;
@@ -109,6 +109,40 @@ namespace UI
                     listBoxIncidente.ClearSelected();
 
                 }
+            }
+        }
+
+        private void buttonElimIncidente_Click(object sender, EventArgs e)
+        {
+            Incidente a = (Incidente)listBoxIncidente.SelectedItem;
+            if (a == null)
+                MessageBox.Show("No hay incidente seleccionado para eliminar.");
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Esta seguro que desea eliminar el incidente seleccionado?", "Eliminar incidente", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //a.eliminarIncidenteDb();
+                    a.eliminar();
+                    dt.removerIncidente(a);
+                }
+
+                listBoxIncidente.DataSource = null;
+                listBoxIncidente.DataSource = dt.Incidentes;
+                listBoxIncidente.ClearSelected();
+            }
+        }
+
+        private void buttonMostrarIncidente_Click(object sender, EventArgs e)
+        {
+            Incidente i = (Incidente)listBoxIncidente.SelectedItem;
+            if (i == null)
+                MessageBox.Show("No hay infraccion seleccionada para mostrar.");
+            else
+            {
+                FormIncidente fi = new FormIncidente(i, dt.Infracciones);
+                fi.prepararMostrar();
+                fi.ShowDialog();
             }
         }
 
@@ -128,5 +162,6 @@ namespace UI
 
             e.Value = fecha + " | Patente: " + patente + " | " + desc;
         }
+
     }
 }

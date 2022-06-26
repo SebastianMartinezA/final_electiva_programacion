@@ -11,23 +11,23 @@ namespace Negocio
     public class Vehiculo
     {
         private string patente;
-        List<Suceso> sucesos;
+        List<Incidente> incidentes;
         List<Pago> pagos;
 
         public Vehiculo(string patente)
         {
             this.patente = patente;
-            this.sucesos = new List<Suceso>();
+            this.incidentes = new List<Incidente>();
             this.pagos = new List<Pago>();
         }
 
         public string Patente { get => patente; set => patente = value; }
-        public List<Suceso> Sucesos { get => sucesos; set => sucesos = value; }
+        public List<Incidente> Incidentes { get => incidentes; set => incidentes = value; }
         public List<Pago> Pagos { get => pagos; }
 
-        public void agregarSuceso(Suceso inc)
+        public void agregarIncidente(Incidente inc)
         {
-            this.sucesos.Add(inc);
+            this.incidentes.Add(inc);
         }
 
         public void agregarPago(Pago pago)
@@ -35,9 +35,9 @@ namespace Negocio
             this.pagos.Add(pago);
         }
 
-        public void removerSuceso(Suceso inc)
+        public void removerIncidente(Incidente inc)
         {
-            this.sucesos.Remove(inc);
+            this.incidentes.Remove(inc);
         }
     }
 }

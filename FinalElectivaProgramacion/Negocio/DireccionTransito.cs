@@ -9,12 +9,12 @@ namespace Negocio
     public class DireccionTransito
     {
         private List<Infraccion> infracciones;
-        private List<Suceso> sucesos;
+        private List<Incidente> incidentes;
         private List<Pago> pagos;
         private List<Vehiculo> vehiculos;
 
         public List<Infraccion> Infracciones { get => infracciones; set => infracciones = value; }
-        public List<Suceso> Sucesos { get => sucesos; set => sucesos = value; }
+        public List<Incidente> Incidentes { get => incidentes; set => incidentes = value; }
         public List<Pago> Pagos { get => pagos; set => pagos = value; }
         public List<Vehiculo> Vehiculos { get => vehiculos; set => vehiculos = value; }
 
@@ -26,7 +26,7 @@ namespace Negocio
         private void setListsData()
         {
             infracciones = new List<Infraccion>();
-            sucesos = new List<Suceso>();
+            incidentes = new List<Incidente>();
             pagos = new List<Pago>();
             vehiculos = new List<Vehiculo>();
         }
@@ -39,23 +39,23 @@ namespace Negocio
         public void removerInfraccion(Infraccion inf)
         {
             this.infracciones.Remove(inf);
-            foreach (var a in Sucesos.ToList()) // Pensar, removemos los incidentes/sucesos si borramos la infraccion?
+            foreach (var a in Incidentes.ToList()) // Pensar, removemos los incidentes/incidentes si borramos la infraccion?
             {
                 if (a.Infraccion == inf)
                 {
-                    Sucesos.Remove(a);
+                    Incidentes.Remove(a);
                 }
             }
         }
 
-        public void agregarSuceso(Suceso inc)
+        public void agregarIncidente(Incidente inc)
         {
-            this.Sucesos.Add(inc);
+            this.Incidentes.Add(inc);
         }
 
-        public void removerSuceso(Suceso inc)
+        public void removerIncidente(Incidente inc)
         {
-            this.Sucesos.Remove(inc);
+            this.Incidentes.Remove(inc);
         }
 
         public void agregarVehiculo(Vehiculo v)

@@ -37,11 +37,11 @@
             this.buttonCrearInfraccion = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBoxSuceso = new System.Windows.Forms.ListBox();
-            this.buttonMostrarSuceso = new System.Windows.Forms.Button();
-            this.buttonElimSuceso = new System.Windows.Forms.Button();
-            this.buttonModifSuceso = new System.Windows.Forms.Button();
-            this.buttonCrearSuceso = new System.Windows.Forms.Button();
+            this.listBoxIncidente = new System.Windows.Forms.ListBox();
+            this.buttonMostrarIncidente = new System.Windows.Forms.Button();
+            this.buttonElimIncidente = new System.Windows.Forms.Button();
+            this.buttonModifIncidente = new System.Windows.Forms.Button();
+            this.buttonCrearIncidente = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tabControl1.SuspendLayout();
@@ -137,17 +137,17 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.listBoxSuceso);
-            this.tabPage2.Controls.Add(this.buttonMostrarSuceso);
-            this.tabPage2.Controls.Add(this.buttonElimSuceso);
-            this.tabPage2.Controls.Add(this.buttonModifSuceso);
-            this.tabPage2.Controls.Add(this.buttonCrearSuceso);
+            this.tabPage2.Controls.Add(this.listBoxIncidente);
+            this.tabPage2.Controls.Add(this.buttonMostrarIncidente);
+            this.tabPage2.Controls.Add(this.buttonElimIncidente);
+            this.tabPage2.Controls.Add(this.buttonModifIncidente);
+            this.tabPage2.Controls.Add(this.buttonCrearIncidente);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(792, 422);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Suceso";
+            this.tabPage2.Text = "Incidente";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -161,60 +161,60 @@
             this.button1.Text = "Registrar pago";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // listBoxSuceso
+            // listBoxIncidente
             // 
-            this.listBoxSuceso.FormattingEnabled = true;
-            this.listBoxSuceso.ItemHeight = 15;
-            this.listBoxSuceso.Location = new System.Drawing.Point(431, 7);
-            this.listBoxSuceso.Name = "listBoxSuceso";
-            this.listBoxSuceso.Size = new System.Drawing.Size(355, 409);
-            this.listBoxSuceso.TabIndex = 8;
-            this.listBoxSuceso.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxSuceso_Format);
+            this.listBoxIncidente.FormattingEnabled = true;
+            this.listBoxIncidente.ItemHeight = 15;
+            this.listBoxIncidente.Location = new System.Drawing.Point(431, 7);
+            this.listBoxIncidente.Name = "listBoxIncidente";
+            this.listBoxIncidente.Size = new System.Drawing.Size(355, 409);
+            this.listBoxIncidente.TabIndex = 8;
+            this.listBoxIncidente.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxIncidente_Format);
             // 
-            // buttonMostrarSuceso
+            // buttonMostrarIncidente
             // 
-            this.buttonMostrarSuceso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMostrarSuceso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMostrarSuceso.Location = new System.Drawing.Point(56, 180);
-            this.buttonMostrarSuceso.Name = "buttonMostrarSuceso";
-            this.buttonMostrarSuceso.Size = new System.Drawing.Size(185, 58);
-            this.buttonMostrarSuceso.TabIndex = 7;
-            this.buttonMostrarSuceso.Text = "Mostrar suceso";
-            this.buttonMostrarSuceso.UseVisualStyleBackColor = true;
+            this.buttonMostrarIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonMostrarIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonMostrarIncidente.Location = new System.Drawing.Point(56, 180);
+            this.buttonMostrarIncidente.Name = "buttonMostrarIncidente";
+            this.buttonMostrarIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonMostrarIncidente.TabIndex = 7;
+            this.buttonMostrarIncidente.Text = "Mostrar incidente";
+            this.buttonMostrarIncidente.UseVisualStyleBackColor = true;
             // 
-            // buttonElimSuceso
+            // buttonElimIncidente
             // 
-            this.buttonElimSuceso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonElimSuceso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonElimSuceso.Location = new System.Drawing.Point(56, 253);
-            this.buttonElimSuceso.Name = "buttonElimSuceso";
-            this.buttonElimSuceso.Size = new System.Drawing.Size(185, 58);
-            this.buttonElimSuceso.TabIndex = 6;
-            this.buttonElimSuceso.Text = "Eliminar suceso";
-            this.buttonElimSuceso.UseVisualStyleBackColor = true;
+            this.buttonElimIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonElimIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonElimIncidente.Location = new System.Drawing.Point(56, 253);
+            this.buttonElimIncidente.Name = "buttonElimIncidente";
+            this.buttonElimIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonElimIncidente.TabIndex = 6;
+            this.buttonElimIncidente.Text = "Eliminar incidente";
+            this.buttonElimIncidente.UseVisualStyleBackColor = true;
             // 
-            // buttonModifSuceso
+            // buttonModifIncidente
             // 
-            this.buttonModifSuceso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonModifSuceso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonModifSuceso.Location = new System.Drawing.Point(56, 107);
-            this.buttonModifSuceso.Name = "buttonModifSuceso";
-            this.buttonModifSuceso.Size = new System.Drawing.Size(185, 58);
-            this.buttonModifSuceso.TabIndex = 5;
-            this.buttonModifSuceso.Text = "Modificar suceso";
-            this.buttonModifSuceso.UseVisualStyleBackColor = true;
+            this.buttonModifIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonModifIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonModifIncidente.Location = new System.Drawing.Point(56, 107);
+            this.buttonModifIncidente.Name = "buttonModifIncidente";
+            this.buttonModifIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonModifIncidente.TabIndex = 5;
+            this.buttonModifIncidente.Text = "Modificar incidente";
+            this.buttonModifIncidente.UseVisualStyleBackColor = true;
             // 
-            // buttonCrearSuceso
+            // buttonCrearIncidente
             // 
-            this.buttonCrearSuceso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCrearSuceso.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCrearSuceso.Location = new System.Drawing.Point(56, 33);
-            this.buttonCrearSuceso.Name = "buttonCrearSuceso";
-            this.buttonCrearSuceso.Size = new System.Drawing.Size(185, 58);
-            this.buttonCrearSuceso.TabIndex = 4;
-            this.buttonCrearSuceso.Text = "Crear suceso";
-            this.buttonCrearSuceso.UseVisualStyleBackColor = true;
-            this.buttonCrearSuceso.Click += new System.EventHandler(this.buttonCrearSuceso_Click);
+            this.buttonCrearIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCrearIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCrearIncidente.Location = new System.Drawing.Point(56, 33);
+            this.buttonCrearIncidente.Name = "buttonCrearIncidente";
+            this.buttonCrearIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonCrearIncidente.TabIndex = 4;
+            this.buttonCrearIncidente.Text = "Crear incidente";
+            this.buttonCrearIncidente.UseVisualStyleBackColor = true;
+            this.buttonCrearIncidente.Click += new System.EventHandler(this.buttonCrearIncidente_Click);
             // 
             // tabPage3
             // 
@@ -259,13 +259,13 @@
         private Button buttonModifInfraccion;
         private Button buttonCrearInfraccion;
         private TabPage tabPage2;
-        private Button buttonMostrarSuceso;
-        private Button buttonElimSuceso;
-        private Button buttonModifSuceso;
-        private Button buttonCrearSuceso;
+        private Button buttonMostrarIncidente;
+        private Button buttonElimIncidente;
+        private Button buttonModifIncidente;
+        private Button buttonCrearIncidente;
         private TabPage tabPage3;
         private ListBox listBoxInfraccion;
-        private ListBox listBoxSuceso;
+        private ListBox listBoxIncidente;
         private ListView listView1;
         private Button button1;
     }

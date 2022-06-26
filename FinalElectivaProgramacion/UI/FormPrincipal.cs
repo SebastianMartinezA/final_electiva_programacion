@@ -12,8 +12,8 @@ namespace UI
             dt = new DireccionTransito();
             listBoxInfraccion.DataSource = dt.Infracciones;
             listBoxInfraccion.ClearSelected();
-            listBoxSuceso.DataSource = dt.Sucesos;
-            listBoxSuceso.ClearSelected();
+            listBoxIncidente.DataSource = dt.Incidentes;
+            listBoxIncidente.ClearSelected();
         }
 
         private void buttonCrearInfraccion_Click(object sender, EventArgs e)
@@ -68,9 +68,9 @@ namespace UI
                 listBoxInfraccion.DataSource = dt.Infracciones;
                 listBoxInfraccion.ClearSelected();
 
-                listBoxSuceso.DataSource = null;
-                listBoxSuceso.DataSource = dt.Sucesos;
-                listBoxSuceso.ClearSelected();
+                listBoxIncidente.DataSource = null;
+                listBoxIncidente.DataSource = dt.Incidentes;
+                listBoxIncidente.ClearSelected();
             }
         }
 
@@ -87,7 +87,7 @@ namespace UI
             }
         }
 
-        private void buttonCrearSuceso_Click(object sender, EventArgs e)
+        private void buttonCrearIncidente_Click(object sender, EventArgs e)
         {
             if (dt.Infracciones.Count == 0)
             {
@@ -99,14 +99,14 @@ namespace UI
                 //fi.prepararCrear();
                 fi.ShowDialog();
 
-                Suceso inc = fi.Inc;
+                Incidente inc = fi.Inc;
                 if (inc != null)
                 {
-                    dt.agregarSuceso(inc);
+                    dt.agregarIncidente(inc);
                     MessageBox.Show("Incidente creado satisfactoriamente.");
-                    listBoxSuceso.DataSource = null;
-                    listBoxSuceso.DataSource = dt.Sucesos;
-                    listBoxSuceso.ClearSelected();
+                    listBoxIncidente.DataSource = null;
+                    listBoxIncidente.DataSource = dt.Incidentes;
+                    listBoxIncidente.ClearSelected();
 
                 }
             }
@@ -120,13 +120,13 @@ namespace UI
             e.Value = "Infraccion: " + desc + " | Monto: $" + monto;
         }
 
-        private void listBoxSuceso_Format(object sender, ListControlConvertEventArgs e)
+        private void listBoxIncidente_Format(object sender, ListControlConvertEventArgs e)
         {
-            string desc = ((Suceso)e.ListItem).Infraccion.Descripcion;
-            string fecha = ((Suceso)e.ListItem).Fecha.ToString("dd/MM/yy HH:mm");
-            string patente = ((Suceso)e.ListItem).Vehiculo.Patente;
+            string desc = ((Incidente)e.ListItem).Infraccion.Descripcion;
+            string fecha = ((Incidente)e.ListItem).Fecha.ToString("dd/MM/yy HH:mm");
+            string patente = ((Incidente)e.ListItem).Vehiculo.Patente;
 
-            e.Value = fecha + " | Infraccion: " + desc + " | Patente: " + patente;
+            e.Value = fecha + " | Patente: " + patente + " | " + desc;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace UI
             this.comboBoxTipo.SelectedIndex = comboBoxTipo.FindString(inf.isGrave() ? "Grave" : "Leve");
             this.textBoxDesc.Text = inf.Descripcion;
             this.textBoxMonto.Text = inf.Importe.ToString();
-            this.listBoxIncidentes.DataSource = inf.Sucesos;
+            this.listBoxIncidentes.DataSource = inf.Incidentes;
         }
 
         private void buttonConf_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace UI
             this.buttonModificar.Visible = false;
             this.buttonConf.Visible = true;
             this.listBoxIncidentes.Visible = false;
-            this.labelSucesos.Visible = false;
+            this.labelIncidentes.Visible = false;
         }
 
         public void prepararModificar()
@@ -83,7 +83,7 @@ namespace UI
             this.buttonModificar.Visible = true;
             this.buttonConf.Visible = false;
             this.listBoxIncidentes.Visible = false;
-            this.labelSucesos.Visible = false;
+            this.labelIncidentes.Visible = false;
         }
 
         public void prepararMostrar()
@@ -95,16 +95,16 @@ namespace UI
             this.textBoxDesc.Enabled = false;
             this.textBoxMonto.Enabled = false;
             this.listBoxIncidentes.Visible = true;
-            this.labelSucesos.Visible = true;
+            this.labelIncidentes.Visible = true;
             this.Size = new Size(700, 461);
             this.buttonCancel.Text = "Cerrar";
         }
 
         private void listBoxIncidentes_Format(object sender, ListControlConvertEventArgs e)
         {
-            string desc = ((Suceso)e.ListItem).Infraccion.Descripcion;
-            string fecha = ((Suceso)e.ListItem).Fecha.ToString("dd/MM/yy HH:mm");
-            string patente = ((Suceso)e.ListItem).Vehiculo.Patente;
+            string desc = ((Incidente)e.ListItem).Infraccion.Descripcion;
+            string fecha = ((Incidente)e.ListItem).Fecha.ToString("dd/MM/yy HH:mm");
+            string patente = ((Incidente)e.ListItem).Vehiculo.Patente;
 
             e.Value = fecha + " | Patente: " + patente;
         }

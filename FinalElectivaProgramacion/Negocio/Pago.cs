@@ -10,20 +10,20 @@ namespace Negocio
     {
         private int id;
         private DateTime fecha;
-        private Suceso suceso;
+        private Incidente incidente;
         private double monto;
 
-        public Pago(int id, DateTime fecha, Suceso suceso, double monto)
+        public Pago(int id, DateTime fecha, Incidente incidente, double monto)
         {
             this.id = id;
             this.fecha = fecha;
-            this.suceso = suceso;
+            this.incidente = incidente;
             this.monto = monto;
         }
 
         public int Id { get => id; set => id = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
-        public Suceso Suceso { get => suceso; set => suceso = value; }
+        public Incidente Incidente { get => incidente; set => incidente = value; }
         public double Monto { get => monto; set => monto = value; }
     }
 }

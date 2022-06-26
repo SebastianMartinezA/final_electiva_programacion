@@ -14,10 +14,10 @@ namespace UI
 {
     public partial class FormIncidente : Form
     {
-        private Suceso inc;
+        private Incidente inc;
         List<Vehiculo> vehiculos;
 
-        public Suceso Inc { get => inc; set => inc = value; }
+        public Incidente Inc { get => inc; set => inc = value; }
 
         public FormIncidente(List<Infraccion> infracciones, List<Vehiculo> vehiculos)
         {
@@ -45,9 +45,9 @@ namespace UI
             int id = 0;
             //id = inf.agregarInfraccionDb(desc, monto);
 
-            inc = new Suceso(id, fecha, inf, vehi);
-            vehi.agregarSuceso(inc);
-            inf.agregarSuceso(inc);
+            inc = new Incidente(id, fecha, inf, vehi);
+            vehi.agregarIncidente(inc);
+            inf.agregarIncidente(inc);
 
             this.Close();
         }

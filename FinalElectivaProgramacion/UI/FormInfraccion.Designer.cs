@@ -39,7 +39,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
             this.listBoxIncidentes = new System.Windows.Forms.ListBox();
-            this.labelSucesos = new System.Windows.Forms.Label();
+            this.labelIncidentes = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -179,15 +179,15 @@
             this.listBoxIncidentes.Visible = false;
             this.listBoxIncidentes.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxIncidentes_Format);
             // 
-            // labelSucesos
+            // labelIncidentes
             // 
-            this.labelSucesos.AutoSize = true;
-            this.labelSucesos.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelSucesos.Location = new System.Drawing.Point(434, 18);
-            this.labelSucesos.Name = "labelSucesos";
-            this.labelSucesos.Size = new System.Drawing.Size(79, 25);
-            this.labelSucesos.TabIndex = 15;
-            this.labelSucesos.Text = "Sucesos";
+            this.labelIncidentes.AutoSize = true;
+            this.labelIncidentes.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelIncidentes.Location = new System.Drawing.Point(434, 18);
+            this.labelIncidentes.Name = "labelIncidentes";
+            this.labelIncidentes.Size = new System.Drawing.Size(79, 25);
+            this.labelIncidentes.TabIndex = 15;
+            this.labelIncidentes.Text = "Incidentes";
             // 
             // FormInfraccion
             // 
@@ -195,7 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 422);
             this.ControlBox = false;
-            this.Controls.Add(this.labelSucesos);
+            this.Controls.Add(this.labelIncidentes);
             this.Controls.Add(this.listBoxIncidentes);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonConf);
@@ -229,6 +229,6 @@
         private Button buttonCancel;
         private Button buttonModificar;
         private ListBox listBoxIncidentes;
-        private Label labelSucesos;
+        private Label labelIncidentes;
     }
 }

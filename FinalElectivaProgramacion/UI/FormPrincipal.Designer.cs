@@ -36,6 +36,8 @@
             this.buttonModifInfraccion = new System.Windows.Forms.Button();
             this.buttonCrearInfraccion = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxBuscarInc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.listBoxIncidente = new System.Windows.Forms.ListBox();
             this.buttonMostrarIncidente = new System.Windows.Forms.Button();
@@ -80,9 +82,9 @@
             // 
             this.listBoxInfraccion.FormattingEnabled = true;
             this.listBoxInfraccion.ItemHeight = 15;
-            this.listBoxInfraccion.Location = new System.Drawing.Point(431, 7);
+            this.listBoxInfraccion.Location = new System.Drawing.Point(431, 37);
             this.listBoxInfraccion.Name = "listBoxInfraccion";
-            this.listBoxInfraccion.Size = new System.Drawing.Size(355, 409);
+            this.listBoxInfraccion.Size = new System.Drawing.Size(355, 379);
             this.listBoxInfraccion.TabIndex = 4;
             this.listBoxInfraccion.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxInfraccion_Format);
             // 
@@ -136,6 +138,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBoxBuscarInc);
+            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.listBoxIncidente);
             this.tabPage2.Controls.Add(this.buttonMostrarIncidente);
@@ -149,6 +153,25 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Incidente";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBoxBuscarInc
+            // 
+            this.textBoxBuscarInc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxBuscarInc.Location = new System.Drawing.Point(539, 4);
+            this.textBoxBuscarInc.Name = "textBoxBuscarInc";
+            this.textBoxBuscarInc.Size = new System.Drawing.Size(247, 27);
+            this.textBoxBuscarInc.TabIndex = 11;
+            this.textBoxBuscarInc.TextChanged += new System.EventHandler(this.textBoxBuscarInc_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(431, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Buscar patente";
             // 
             // button1
             // 
@@ -165,9 +188,9 @@
             // 
             this.listBoxIncidente.FormattingEnabled = true;
             this.listBoxIncidente.ItemHeight = 15;
-            this.listBoxIncidente.Location = new System.Drawing.Point(431, 7);
+            this.listBoxIncidente.Location = new System.Drawing.Point(431, 37);
             this.listBoxIncidente.Name = "listBoxIncidente";
-            this.listBoxIncidente.Size = new System.Drawing.Size(355, 409);
+            this.listBoxIncidente.Size = new System.Drawing.Size(355, 379);
             this.listBoxIncidente.TabIndex = 8;
             this.listBoxIncidente.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxIncidente_Format);
             // 
@@ -248,6 +271,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -271,5 +295,7 @@
         private ListBox listBoxIncidente;
         private ListView listView1;
         private Button button1;
+        private TextBox textBoxBuscarInc;
+        private Label label1;
     }
 }

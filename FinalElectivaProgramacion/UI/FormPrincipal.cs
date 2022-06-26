@@ -163,5 +163,28 @@ namespace UI
             e.Value = fecha + " | Patente: " + patente + " | " + desc;
         }
 
+        private void textBoxBuscarInc_TextChanged(object sender, EventArgs e)
+        {
+            listBoxIncidente.DataSource = null;
+            foreach (Incidente a in dt.Incidentes.ToList())
+            {
+                listBoxIncidente.Items.Add(a);
+            }
+            if (string.IsNullOrEmpty(textBoxBuscarInc.Text) == false)
+            {
+                listBoxIncidente.Items.Clear();
+                foreach (Incidente a in dt.Incidentes.ToList())
+                {
+                    if (a.Vehiculo.Patente.StartsWith(textBoxBuscarInc.Text))
+                    {
+                        listBoxIncidente.Items.Add(a);
+                    }
+                }
+            }
+            else if (textBoxBuscarInc.Text == "")
+            {
+                listBoxIncidente.DataSource = dt.Incidentes;
+            }
+        }
     }
 }

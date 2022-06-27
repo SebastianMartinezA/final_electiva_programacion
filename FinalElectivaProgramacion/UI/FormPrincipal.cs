@@ -259,5 +259,26 @@ namespace UI
                 }
             }
         }
+
+        private void listBoxInfraccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Infraccion inf = (Infraccion)listBoxInfraccion.SelectedItem;
+            if (inf != null)
+            {
+                ToolTip tt = new ToolTip();
+                tt.IsBalloon = true;
+                tt.SetToolTip(this.buttonElimInfraccion, "La infracción ya tiene un pago vinculado.");
+                if (dt.tienePagoVinculado(inf))
+                {
+                    buttonElimInfraccion.Enabled = false;
+                    tt.Active = true;
+                }
+                else
+                {
+                    buttonElimInfraccion.Enabled = true;
+                    tt.Active = false;
+                }
+            }
+        }
     }
 }

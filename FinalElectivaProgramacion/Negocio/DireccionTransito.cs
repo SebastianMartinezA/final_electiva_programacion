@@ -146,5 +146,11 @@ namespace Negocio
             pago.Incidente.Vehiculo.agregarPago(pago);
             pagos.Add(pago);
         }
+
+        public bool tienePagoVinculado(Infraccion inf)
+        {
+            var incidentes = inf.Incidentes.Select(i => i.Id);
+            return this.pagos.Any(p => incidentes.Contains(p.Incidente.Id));
+        }
     }
 }

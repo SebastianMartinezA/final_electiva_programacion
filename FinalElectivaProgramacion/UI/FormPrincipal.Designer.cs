@@ -86,6 +86,7 @@
             this.listBoxInfraccion.Name = "listBoxInfraccion";
             this.listBoxInfraccion.Size = new System.Drawing.Size(355, 379);
             this.listBoxInfraccion.TabIndex = 4;
+            this.listBoxInfraccion.SelectedIndexChanged += new System.EventHandler(this.listBoxInfraccion_SelectedIndexChanged);
             this.listBoxInfraccion.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxInfraccion_Format);
             // 
             // buttonMostrarInfraccion

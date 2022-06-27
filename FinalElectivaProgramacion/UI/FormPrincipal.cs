@@ -184,14 +184,16 @@ namespace UI
         private void textBoxBuscarInc_TextChanged(object sender, EventArgs e)
         {
             listBoxIncidente.DataSource = null;
-            foreach (Incidente a in dt.Incidentes.ToList())
+            List<Incidente> incedenextaux = dt.Incidentes.Where(i => !dt.tienePagoVinculado(i)).ToList();
+
+            foreach (Incidente a in incedenextaux)
             {
                 listBoxIncidente.Items.Add(a);
             }
             if (string.IsNullOrEmpty(textBoxBuscarInc.Text) == false)
             {
                 listBoxIncidente.Items.Clear();
-                foreach (Incidente a in dt.Incidentes.ToList())
+                foreach (Incidente a in incedenextaux)
                 {
                     if (a.Vehiculo.Patente.StartsWith(textBoxBuscarInc.Text))
                     {
@@ -201,8 +203,7 @@ namespace UI
             }
             else if (textBoxBuscarInc.Text == "")
             {
-                // Revisar si no podria hacerse el refreshListBoxIncidentes();
-                listBoxIncidente.DataSource = dt.Incidentes.Where(i => !dt.tienePagoVinculado(i)).ToList();
+                refreshListBoxIncidentes();
             }
         }
 

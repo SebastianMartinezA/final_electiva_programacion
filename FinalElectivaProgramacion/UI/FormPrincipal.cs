@@ -14,6 +14,7 @@ namespace UI
             listBoxInfraccion.ClearSelected();
             listBoxIncidente.DataSource = dt.Incidentes;
             listBoxIncidente.ClearSelected();
+            dataGridViewPagos.DataSource = dt.Pagos.Select(p => new { ID = p.Id, Fecha = p.Fecha.ToShortDateString(), Incidente = p.Incidente.Infraccion.Descripcion, Monto = "$" + p.Monto }).ToList();
         }
 
         private void buttonCrearInfraccion_Click(object sender, EventArgs e)
@@ -166,8 +167,8 @@ namespace UI
                 }
 
                 listBoxIncidente.ClearSelected();
-                //dataGridViewPagos.DataSource = null;
-                //dataGridViewPagos.DataSource = club.Pagos.Select(o => new { ID = o.Id, Monto = "$" + o.Monto, Socio = o.Soc.Nombre, Fecha = o.Fecha.ToShortDateString() }).ToList();
+                dataGridViewPagos.DataSource = null;
+                dataGridViewPagos.DataSource = dt.Pagos.Select(p => new { ID = p.Id, Fecha = p.Fecha.ToShortDateString(), Incidente = p.Incidente.Infraccion.Descripcion, Monto = "$" + p.Monto }).ToList();
             }
         }
 
@@ -211,7 +212,7 @@ namespace UI
                 listBoxIncidente.DataSource = dt.Incidentes;
             }
         }
-        
+
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             int defaultDescGrave = 20;

@@ -37,18 +37,19 @@
             this.buttonCrearInfraccion = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBoxBuscarInc = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label(); 
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonPagoIncidente = new System.Windows.Forms.Button();
             this.listBoxIncidente = new System.Windows.Forms.ListBox();
             this.buttonMostrarIncidente = new System.Windows.Forms.Button();
             this.buttonElimIncidente = new System.Windows.Forms.Button();
             this.buttonCrearIncidente = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.dataGridViewPagos = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPagos)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -231,7 +232,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.listView1);
+            this.tabPage3.Controls.Add(this.dataGridViewPagos);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(792, 422);
@@ -239,13 +240,14 @@
             this.tabPage3.Text = "Pago";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // dataGridViewPagos
             // 
-            this.listView1.Location = new System.Drawing.Point(8, 13);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(776, 401);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.dataGridViewPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPagos.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewPagos.Name = "dataGridViewPagos";
+            this.dataGridViewPagos.RowTemplate.Height = 25;
+            this.dataGridViewPagos.Size = new System.Drawing.Size(792, 422);
+            this.dataGridViewPagos.TabIndex = 0;
             // 
             // FormPrincipal
             // 
@@ -263,6 +265,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPagos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,9 +285,9 @@
         private TabPage tabPage3;
         private ListBox listBoxInfraccion;
         private ListBox listBoxIncidente;
-        private ListView listView1;
         private TextBox textBoxBuscarInc;
         private Label label1;
         private Button buttonPagoIncidente;
+        private DataGridView dataGridViewPagos;
     }
 }

@@ -192,6 +192,7 @@
             this.listBoxIncidente.Name = "listBoxIncidente";
             this.listBoxIncidente.Size = new System.Drawing.Size(355, 379);
             this.listBoxIncidente.TabIndex = 8;
+            this.listBoxIncidente.SelectedIndexChanged += new System.EventHandler(this.listBoxIncidente_SelectedIndexChanged);
             this.listBoxIncidente.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxIncidente_Format);
             // 
             // buttonMostrarIncidente

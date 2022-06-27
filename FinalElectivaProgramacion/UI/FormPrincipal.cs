@@ -239,5 +239,25 @@ namespace UI
             }
             InfraccionLeve.SetDescuento10Dias(defaultDescLeve2);
         }
+
+        private void listBoxIncidente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Incidente inc = (Incidente)listBoxIncidente.SelectedItem;
+            if (inc != null)
+            {
+                ToolTip tt = new ToolTip();
+                tt.SetToolTip(this.buttonPagoIncidente, "La fecha para el pago esta vencida.");
+                if (!inc.verificarVencimiento())
+                {
+                    buttonPagoIncidente.Enabled = false;
+                    tt.Active = true;
+                }
+                else
+                {
+                    buttonPagoIncidente.Enabled = true;
+                    tt.Active = false;
+                }
+            }
+        }
     }
 }

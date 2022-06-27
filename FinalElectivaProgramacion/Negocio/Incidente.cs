@@ -46,5 +46,15 @@ namespace Negocio
         {
             return incDb.agregar(fecha, idInfraccion, patente);
         }
+
+        // verificarVencimiento retorna false si ya esta vencido y true si aún no.
+        public bool verificarVencimiento()
+        {
+            DateTime vencimiento = this.fecha.AddDays(30);
+            TimeSpan ts = vencimiento.Subtract(DateTime.Now);
+            int dias = Convert.ToInt32(ts.TotalDays);
+
+            return dias >= 0 && dias <= 30;
+        }
     }
 }

@@ -37,12 +37,11 @@
             this.buttonCrearInfraccion = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBoxBuscarInc = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label(); 
+            this.buttonPagoIncidente = new System.Windows.Forms.Button();
             this.listBoxIncidente = new System.Windows.Forms.ListBox();
             this.buttonMostrarIncidente = new System.Windows.Forms.Button();
             this.buttonElimIncidente = new System.Windows.Forms.Button();
-            this.buttonModifIncidente = new System.Windows.Forms.Button();
             this.buttonCrearIncidente = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -140,11 +139,10 @@
             // 
             this.tabPage2.Controls.Add(this.textBoxBuscarInc);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.buttonPagoIncidente);
             this.tabPage2.Controls.Add(this.listBoxIncidente);
             this.tabPage2.Controls.Add(this.buttonMostrarIncidente);
             this.tabPage2.Controls.Add(this.buttonElimIncidente);
-            this.tabPage2.Controls.Add(this.buttonModifIncidente);
             this.tabPage2.Controls.Add(this.buttonCrearIncidente);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -173,16 +171,17 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Buscar patente";
             // 
-            // button1
+            // buttonPagoIncidente
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(56, 326);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 58);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Registrar pago";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPagoIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPagoIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPagoIncidente.Location = new System.Drawing.Point(56, 225);
+            this.buttonPagoIncidente.Name = "buttonPagoIncidente";
+            this.buttonPagoIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonPagoIncidente.TabIndex = 9;
+            this.buttonPagoIncidente.Text = "Registrar pago";
+            this.buttonPagoIncidente.UseVisualStyleBackColor = true;
+            this.buttonPagoIncidente.Click += new System.EventHandler(this.buttonPagoIncidente_Click);
             // 
             // listBoxIncidente
             // 
@@ -198,7 +197,7 @@
             // 
             this.buttonMostrarIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMostrarIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMostrarIncidente.Location = new System.Drawing.Point(56, 180);
+            this.buttonMostrarIncidente.Location = new System.Drawing.Point(56, 97);
             this.buttonMostrarIncidente.Name = "buttonMostrarIncidente";
             this.buttonMostrarIncidente.Size = new System.Drawing.Size(185, 58);
             this.buttonMostrarIncidente.TabIndex = 7;
@@ -210,24 +209,13 @@
             // 
             this.buttonElimIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonElimIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonElimIncidente.Location = new System.Drawing.Point(56, 253);
+            this.buttonElimIncidente.Location = new System.Drawing.Point(56, 161);
             this.buttonElimIncidente.Name = "buttonElimIncidente";
             this.buttonElimIncidente.Size = new System.Drawing.Size(185, 58);
             this.buttonElimIncidente.TabIndex = 6;
             this.buttonElimIncidente.Text = "Eliminar incidente";
             this.buttonElimIncidente.UseVisualStyleBackColor = true;
             this.buttonElimIncidente.Click += new System.EventHandler(this.buttonElimIncidente_Click);
-            // 
-            // buttonModifIncidente
-            // 
-            this.buttonModifIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonModifIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonModifIncidente.Location = new System.Drawing.Point(56, 107);
-            this.buttonModifIncidente.Name = "buttonModifIncidente";
-            this.buttonModifIncidente.Size = new System.Drawing.Size(185, 58);
-            this.buttonModifIncidente.TabIndex = 5;
-            this.buttonModifIncidente.Text = "Modificar incidente";
-            this.buttonModifIncidente.UseVisualStyleBackColor = true;
             // 
             // buttonCrearIncidente
             // 
@@ -267,7 +255,9 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dirección de Tránsito";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -288,14 +278,13 @@
         private TabPage tabPage2;
         private Button buttonMostrarIncidente;
         private Button buttonElimIncidente;
-        private Button buttonModifIncidente;
         private Button buttonCrearIncidente;
         private TabPage tabPage3;
         private ListBox listBoxInfraccion;
         private ListBox listBoxIncidente;
         private ListView listView1;
-        private Button button1;
         private TextBox textBoxBuscarInc;
         private Label label1;
+        private Button buttonPagoIncidente;
     }
 }

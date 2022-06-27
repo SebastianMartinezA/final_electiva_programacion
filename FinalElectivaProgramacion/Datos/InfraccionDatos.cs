@@ -17,13 +17,13 @@ namespace Datos
             this.conexion = new Conexion();
         }
 
-        public int agregar(string desc, double importe)
+        public int agregar(string desc, double importe, string tipo)
         {
-
-            SqlCommand SqlComando = new SqlCommand("INSERT INTO [dbo].[Infraccion]([Descripcion],[Importe]) VALUES(@Descripcion,@Importe); SELECT SCOPE_IDENTITY()");
+            SqlCommand SqlComando = new SqlCommand("INSERT INTO [dbo].[Infraccion]([Descripcion],[Importe],[Tipo]) VALUES(@Descripcion,@Importe,@Tipo); SELECT SCOPE_IDENTITY()");
 
             SqlComando.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = desc;
             SqlComando.Parameters.Add("@Importe", SqlDbType.Float).Value = (float)importe;
+            SqlComando.Parameters.Add("@Tipo", SqlDbType.VarChar).Value = tipo.ToUpper();
 
             // Envia el parametro y este al completarlo devuelve el ID del elemento creado en la base de datos
             int modified = conexion.ejectutarComando(SqlComando);
@@ -40,7 +40,6 @@ namespace Datos
 
         public int eliminar(int id)
         {
-
             SqlCommand SqlComando = new SqlCommand("DELETE FROM [dbo].[Infraccion] WHERE ID=(@Id)");
 
             SqlComando.Parameters.Add("@Id", SqlDbType.Int).Value = id;

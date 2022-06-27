@@ -11,7 +11,7 @@ namespace Negocio
         private static int Descuento20Dias;
         private static int Descuento10Dias;
 
-        public InfraccionLeve(int id, string descripcion, double importe) : base(id, descripcion, importe)
+        public InfraccionLeve(int id, string descripcion, double importe, string tipo) : base(id, descripcion, importe, tipo)
         {
 
         }
@@ -34,6 +34,27 @@ namespace Negocio
         public static void SetDescuento10Dias(int desc)
         {
             Descuento10Dias = desc;
+        }
+
+        // Las infracciones leves tienen un 25 % de descuento si se pagan 20 días antes de su vencimiento y un 15% si se pagan 10 días antes.
+        public override double calcularImporte(DateTime suceso)
+        {
+            DateTime vencimiento = suceso.AddDays(30);
+            TimeSpan ts = vencimiento.Subtract(DateTime.Now);
+            int dias = Convert.ToInt32(ts.TotalDays);
+
+            double monto = this.Importe;
+            switch (dias)
+            {
+                case >= 20:
+                    monto = monto * (100 - GetDescuento20Dias()) / 100;
+                    break;
+                case >= 10:
+                    monto = monto * (100 - GetDescuento10Dias()) / 100;
+                    break;
+            }
+
+            return monto;
         }
     }
 }

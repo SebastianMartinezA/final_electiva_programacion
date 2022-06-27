@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace Negocio
         private DateTime fecha;
         private Infraccion infraccion;
         private Vehiculo vehiculo;
+        private IncidenteDatos incDb;
+
         public int Id { get => id; set => id = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public Infraccion Infraccion { get => infraccion; set => infraccion = value; }
@@ -19,6 +22,8 @@ namespace Negocio
 
         public Incidente(int id, DateTime fecha, Infraccion infraccion, Vehiculo vehiculo)
         {
+            this.incDb = new IncidenteDatos();
+
             this.id = id;
             this.fecha = fecha;
             this.infraccion = infraccion;
@@ -30,6 +35,16 @@ namespace Negocio
         {
             vehiculo.removerIncidente(this);
             infraccion.removerIncidente(this);
+        }
+
+        public void eliminarDb()
+        {
+            incDb.eliminar(this.id);
+        }
+
+        public int agregarDb(DateTime fecha, int idInfraccion, string patente)
+        {
+            return incDb.agregar(fecha, idInfraccion, patente);
         }
     }
 }

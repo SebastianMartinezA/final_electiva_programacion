@@ -185,7 +185,7 @@
             this.labelIncidentes.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelIncidentes.Location = new System.Drawing.Point(434, 18);
             this.labelIncidentes.Name = "labelIncidentes";
-            this.labelIncidentes.Size = new System.Drawing.Size(79, 25);
+            this.labelIncidentes.Size = new System.Drawing.Size(100, 25);
             this.labelIncidentes.TabIndex = 15;
             this.labelIncidentes.Text = "Incidentes";
             // 
@@ -210,6 +210,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormInfraccion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Infraccion";
             this.ResumeLayout(false);
             this.PerformLayout();

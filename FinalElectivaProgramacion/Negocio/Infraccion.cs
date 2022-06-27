@@ -7,32 +7,36 @@ namespace Negocio
         private int id;
         private string descripcion;
         private double importe;
-        private InfraccionDatos infDb;
+        private string tipo;
         List<Incidente> incidentes;
+        private InfraccionDatos infDb;
 
         public int Id { get => id; set => id = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public double Importe { get => importe; set => importe = value; }
         public List<Incidente> Incidentes { get => incidentes; }
 
-        public Infraccion(int id, string descripcion, double importe)
+        public Infraccion(int id, string descripcion, double importe, string tipo)
         {
             this.infDb = new InfraccionDatos();
 
             this.id = id;
             this.descripcion = descripcion;
             this.importe = importe;
+            this.tipo = tipo;
             this.incidentes = new List<Incidente>();
         }
+
+        public abstract double calcularImporte(DateTime suceso);
 
         public virtual bool isGrave()
         {
             return false;
         }
 
-        public int agregarInfraccionDb(string desc, double monto)
+        public int agregarInfraccionDb(string desc, double monto, string tipo)
         {
-            return infDb.agregar(desc, monto);
+            return infDb.agregar(desc, monto, tipo);
         }
 
         public int modificarInfraccionDb()
@@ -41,6 +45,11 @@ namespace Negocio
         }
         public void eliminarInfraccionDb()
         {
+            foreach (var inc in incidentes)
+            {
+                inc.eliminarDb();
+            }
+
             infDb.eliminar(this.Id);
         }
 

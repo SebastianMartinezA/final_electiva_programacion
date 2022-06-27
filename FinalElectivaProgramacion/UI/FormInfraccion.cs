@@ -39,17 +39,16 @@ namespace UI
             string tipo = this.comboBoxTipo.Text;
             double monto = double.Parse(this.textBoxMonto.Text);
 
-            int id = 0;
-            //id = inf.agregarInfraccionDb(desc, monto);
-
-            if (comboBoxTipo.Text == "Grave")
+            if (tipo == "Grave")
             {
-                inf = new InfraccionGrave(id, desc, monto);
+                inf = new InfraccionGrave(0, desc, monto, tipo);
             }
             else
             {
-                inf = new InfraccionLeve(id, desc, monto);
+                inf = new InfraccionLeve(0, desc, monto, tipo);
             }
+
+            inf.Id = inf.agregarInfraccionDb(desc, monto, tipo);
 
             this.Close();
         }
@@ -58,7 +57,7 @@ namespace UI
             this.inf.Descripcion = this.textBoxDesc.Text;
             this.inf.Importe = double.Parse(this.textBoxMonto.Text);
 
-            //inf.modificarInfraccionDb();
+            inf.modificarInfraccionDb();
 
             this.Close();
         }

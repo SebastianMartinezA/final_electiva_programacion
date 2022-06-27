@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonConf = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,22 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePickerIncidente = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
-            // 
-            // buttonModificar
-            // 
-            this.buttonModificar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonModificar.Location = new System.Drawing.Point(268, 305);
-            this.buttonModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(101, 47);
-            this.buttonModificar.TabIndex = 23;
-            this.buttonModificar.Text = "Modificar";
-            this.buttonModificar.UseVisualStyleBackColor = false;
-            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonConf
             // 
@@ -170,7 +153,6 @@
             this.ClientSize = new System.Drawing.Size(412, 422);
             this.ControlBox = false;
             this.Controls.Add(this.dateTimePickerIncidente);
-            this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonConf);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.label4);
@@ -181,6 +163,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormIncidente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incidente";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,8 +171,6 @@
         }
 
         #endregion
-
-        private Button buttonModificar;
         private Button buttonConf;
         private Button buttonCancel;
         private Label label4;

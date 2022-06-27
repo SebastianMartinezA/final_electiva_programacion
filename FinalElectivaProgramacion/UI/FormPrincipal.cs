@@ -53,17 +53,20 @@ namespace UI
 
         private void buttonElimInfraccion_Click(object sender, EventArgs e)
         {
-            Infraccion a = (Infraccion)listBoxInfraccion.SelectedItem;
-            if (a == null)
+            Infraccion inf = (Infraccion)listBoxInfraccion.SelectedItem;
+            if (inf == null)
                 MessageBox.Show("No hay infraccion seleccionada para eliminar.");
             else
             {
                 DialogResult dialogResult = MessageBox.Show("Esta seguro que desea eliminar la infraccion seleccionada?", "Eliminar infraccion", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    a.eliminarInfraccionDb();
-                    dt.removerInfraccion(a);
+                    inf.eliminarInfraccionDb();
+                    dt.removerInfraccion(inf);
+
+                    MessageBox.Show("Infraccion eliminada satisfactoriamente.");
                 }
+
                 listBoxInfraccion.DataSource = null;
                 listBoxInfraccion.DataSource = dt.Infracciones;
                 listBoxInfraccion.ClearSelected();
@@ -107,24 +110,25 @@ namespace UI
                     listBoxIncidente.DataSource = null;
                     listBoxIncidente.DataSource = dt.Incidentes;
                     listBoxIncidente.ClearSelected();
-
                 }
             }
         }
 
         private void buttonElimIncidente_Click(object sender, EventArgs e)
         {
-            Incidente a = (Incidente)listBoxIncidente.SelectedItem;
-            if (a == null)
+            Incidente inc = (Incidente)listBoxIncidente.SelectedItem;
+            if (inc == null)
                 MessageBox.Show("No hay incidente seleccionado para eliminar.");
             else
             {
                 DialogResult dialogResult = MessageBox.Show("Esta seguro que desea eliminar el incidente seleccionado?", "Eliminar incidente", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    //a.eliminarIncidenteDb();
-                    a.eliminar();
-                    dt.removerIncidente(a);
+                    inc.eliminarDb();
+                    inc.eliminar();
+                    dt.removerIncidente(inc);
+
+                    MessageBox.Show("Incidente eliminado satisfactoriamente.");
                 }
 
                 listBoxIncidente.DataSource = null;
@@ -137,12 +141,33 @@ namespace UI
         {
             Incidente i = (Incidente)listBoxIncidente.SelectedItem;
             if (i == null)
-                MessageBox.Show("No hay infraccion seleccionada para mostrar.");
+                MessageBox.Show("No hay incidente seleccionado para mostrar.");
             else
             {
                 FormIncidente fi = new FormIncidente(i, dt.Infracciones);
                 fi.prepararMostrar();
                 fi.ShowDialog();
+            }
+        }
+
+        private void buttonPagoIncidente_Click(object sender, EventArgs e)
+        {
+            Incidente inc = (Incidente)listBoxIncidente.SelectedItem;
+            if (inc == null)
+                MessageBox.Show("No hay incidente seleccionado para pagar.");
+            else
+            {
+                double monto = inc.Infraccion.calcularImporte(inc.Fecha);
+                DialogResult dialogResult = MessageBox.Show("Esta seguro que desea realizar el pago correspondiente a $" + monto + " para el incidente seleccionado ?", "Realizar Pago", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    dt.agregarPago(inc, monto);
+                    MessageBox.Show("Pago realizado satisfactoriamente.");
+                }
+
+                listBoxIncidente.ClearSelected();
+                //dataGridViewPagos.DataSource = null;
+                //dataGridViewPagos.DataSource = club.Pagos.Select(o => new { ID = o.Id, Monto = "$" + o.Monto, Socio = o.Soc.Nombre, Fecha = o.Fecha.ToShortDateString() }).ToList();
             }
         }
 
@@ -157,7 +182,7 @@ namespace UI
         private void listBoxIncidente_Format(object sender, ListControlConvertEventArgs e)
         {
             string desc = ((Incidente)e.ListItem).Infraccion.Descripcion;
-            string fecha = ((Incidente)e.ListItem).Fecha.ToString("dd/MM/yy HH:mm");
+            string fecha = ((Incidente)e.ListItem).Fecha.ToString("dd/MM/yy");
             string patente = ((Incidente)e.ListItem).Vehiculo.Patente;
 
             e.Value = fecha + " | Patente: " + patente + " | " + desc;
@@ -185,6 +210,33 @@ namespace UI
             {
                 listBoxIncidente.DataSource = dt.Incidentes;
             }
+        }
+        
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            int defaultDescGrave = 20;
+            string desc = Microsoft.VisualBasic.Interaction.InputBox("Ingrese un valor para el porcentaje de descuento para las infracciones graves que se paguen 25 dias antes de su vencimiento.", "Infraccion Grave", defaultDescGrave.ToString());
+            if (desc.Length != 0)
+            {
+                defaultDescGrave = int.Parse(desc);
+            }
+            InfraccionGrave.SetDescuento25Dias(defaultDescGrave);
+
+            int defaultDescLeve = 25;
+            desc = Microsoft.VisualBasic.Interaction.InputBox("Ingrese un valor para el porcentaje de descuento para las infracciones leves que se paguen 20 dias antes de su vencimiento", "Infraccion Leve", defaultDescLeve.ToString());
+            if (desc.Length != 0)
+            {
+                defaultDescLeve = int.Parse(desc);
+            }
+            InfraccionLeve.SetDescuento20Dias(defaultDescLeve);
+
+            int defaultDescLeve2 = 15;
+            desc = Microsoft.VisualBasic.Interaction.InputBox("Ingrese un valor para el porcentaje de descuento para las infracciones leves que se paguen 10 dias antes de su vencimiento", "Infraccion Leve", defaultDescLeve2.ToString());
+            if (desc.Length != 0)
+            {
+                defaultDescLeve2 = int.Parse(desc);
+            }
+            InfraccionLeve.SetDescuento10Dias(defaultDescLeve2);
         }
     }
 }

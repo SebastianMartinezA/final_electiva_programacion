@@ -41,29 +41,19 @@ namespace UI
             Infraccion inf = (Infraccion)this.comboBoxInfraccion.SelectedItem;
             string patente = textBoxPatente.Text;
 
-            Vehiculo vehi;
-            try
-            {
-                vehi = vehiculos.First(o => o.Patente == patente);
-            }
-            catch
+            Vehiculo? vehi = vehiculos.FirstOrDefault(v => v.Patente == patente);
+            if (vehi == null)
             {
                 vehi = new Vehiculo(patente);
                 vehiculos.Add(vehi);
             }
 
-            int id = 0;
-            //id = inf.agregarInfraccionDb(desc, monto);
+            inc = new Incidente(0, fecha, inf, vehi);
+            inc.Id = inc.agregarDb(fecha, inf.Id, patente);
 
-            inc = new Incidente(id, fecha, inf, vehi);
             vehi.agregarIncidente(inc);
             inf.agregarIncidente(inc);
 
-            this.Close();
-        }
-
-        private void buttonModificar_Click(object sender, EventArgs e)
-        {
             this.Close();
         }
 
@@ -82,13 +72,11 @@ namespace UI
 
         public void prepararCrear()
         {
-            this.buttonModificar.Visible = false;
             this.buttonConf.Visible = true;
         }
 
         public void prepararMostrar()
         {
-            this.buttonModificar.Visible = false;
             this.buttonConf.Visible = false;
             this.buttonCancel.Visible = true;
             this.dateTimePickerIncidente.Enabled = false;

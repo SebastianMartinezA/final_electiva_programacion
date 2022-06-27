@@ -152,5 +152,10 @@ namespace Negocio
             var incidentes = inf.Incidentes.Select(i => i.Id);
             return this.pagos.Any(p => incidentes.Contains(p.Incidente.Id));
         }
+
+        public bool tienePagoVinculado(Incidente inc)
+        {
+            return this.pagos.Any(p => p.Incidente.Id == inc.Id);
+        }
     }
 }

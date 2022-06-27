@@ -12,8 +12,7 @@ namespace UI
             dt = new DireccionTransito();
             listBoxInfraccion.DataSource = dt.Infracciones;
             listBoxInfraccion.ClearSelected();
-            listBoxIncidente.DataSource = dt.Incidentes;
-            listBoxIncidente.ClearSelected();
+            refreshListBoxIncidentes();
             dataGridViewPagos.DataSource = dt.Pagos.Select(p => new { ID = p.Id, Fecha = p.Fecha.ToShortDateString(), Incidente = p.Incidente.Infraccion.Descripcion, Monto = "$" + p.Monto }).ToList();
         }
 
@@ -71,10 +70,7 @@ namespace UI
                 listBoxInfraccion.DataSource = null;
                 listBoxInfraccion.DataSource = dt.Infracciones;
                 listBoxInfraccion.ClearSelected();
-
-                listBoxIncidente.DataSource = null;
-                listBoxIncidente.DataSource = dt.Incidentes;
-                listBoxIncidente.ClearSelected();
+                refreshListBoxIncidentes();
             }
         }
 
@@ -108,9 +104,7 @@ namespace UI
                 {
                     dt.agregarIncidente(inc);
                     MessageBox.Show("Incidente creado satisfactoriamente.");
-                    listBoxIncidente.DataSource = null;
-                    listBoxIncidente.DataSource = dt.Incidentes;
-                    listBoxIncidente.ClearSelected();
+                    refreshListBoxIncidentes();
                 }
             }
         }
@@ -132,9 +126,7 @@ namespace UI
                     MessageBox.Show("Incidente eliminado satisfactoriamente.");
                 }
 
-                listBoxIncidente.DataSource = null;
-                listBoxIncidente.DataSource = dt.Incidentes;
-                listBoxIncidente.ClearSelected();
+                refreshListBoxIncidentes();
             }
         }
 
@@ -166,7 +158,7 @@ namespace UI
                     MessageBox.Show("Pago realizado satisfactoriamente.");
                 }
 
-                listBoxIncidente.ClearSelected();
+                refreshListBoxIncidentes();
                 dataGridViewPagos.DataSource = null;
                 dataGridViewPagos.DataSource = dt.Pagos.Select(p => new { ID = p.Id, Fecha = p.Fecha.ToShortDateString(), Incidente = p.Incidente.Infraccion.Descripcion, Monto = "$" + p.Monto }).ToList();
             }
@@ -209,7 +201,8 @@ namespace UI
             }
             else if (textBoxBuscarInc.Text == "")
             {
-                listBoxIncidente.DataSource = dt.Incidentes;
+                // Revisar si no podria hacerse el refreshListBoxIncidentes();
+                listBoxIncidente.DataSource = dt.Incidentes.Where(i => !dt.tienePagoVinculado(i)).ToList();
             }
         }
 
@@ -279,6 +272,13 @@ namespace UI
                     tt.Active = false;
                 }
             }
+        }
+
+        private void refreshListBoxIncidentes()
+        {
+            listBoxIncidente.DataSource = null;
+            listBoxIncidente.DataSource = dt.Incidentes.Where(i => !dt.tienePagoVinculado(i)).ToList();
+            listBoxIncidente.ClearSelected();
         }
     }
 }

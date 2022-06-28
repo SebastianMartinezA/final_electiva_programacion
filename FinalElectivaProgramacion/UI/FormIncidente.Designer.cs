@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonConf = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,6 +38,8 @@
             this.comboBoxInfraccion = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePickerIncidente = new System.Windows.Forms.DateTimePicker();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonConf
@@ -91,6 +94,9 @@
             this.textBoxPatente.Name = "textBoxPatente";
             this.textBoxPatente.Size = new System.Drawing.Size(333, 29);
             this.textBoxPatente.TabIndex = 17;
+            this.textBoxPatente.TextChanged += new System.EventHandler(this.textBoxPatente_TextChanged);
+            this.textBoxPatente.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPatente_Validating);
+            this.textBoxPatente.Validated += new System.EventHandler(this.textBoxPatente_Validated);
             // 
             // label3
             // 
@@ -142,9 +148,15 @@
             // 
             this.dateTimePickerIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerIncidente.Location = new System.Drawing.Point(36, 125);
+            this.dateTimePickerIncidente.MaxDate = new System.DateTime(2022, 6, 28, 0, 0, 0, 0);
             this.dateTimePickerIncidente.Name = "dateTimePickerIncidente";
             this.dateTimePickerIncidente.Size = new System.Drawing.Size(333, 29);
             this.dateTimePickerIncidente.TabIndex = 24;
+            this.dateTimePickerIncidente.Value = new System.DateTime(2022, 6, 28, 0, 0, 0, 0);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FormIncidente
             // 
@@ -165,6 +177,7 @@
             this.Name = "FormIncidente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incidente";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +193,6 @@
         private ComboBox comboBoxInfraccion;
         private Label label1;
         private DateTimePicker dateTimePickerIncidente;
+        private ErrorProvider errorProvider;
     }
 }

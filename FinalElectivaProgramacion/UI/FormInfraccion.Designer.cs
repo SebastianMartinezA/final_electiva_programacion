@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxMonto = new System.Windows.Forms.TextBox();
@@ -40,6 +41,8 @@
             this.buttonModificar = new System.Windows.Forms.Button();
             this.listBoxIncidentes = new System.Windows.Forms.ListBox();
             this.labelIncidentes = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,6 +75,9 @@
             this.textBoxMonto.Name = "textBoxMonto";
             this.textBoxMonto.Size = new System.Drawing.Size(333, 29);
             this.textBoxMonto.TabIndex = 3;
+            this.textBoxMonto.TextChanged += new System.EventHandler(this.textBoxMonto_TextChanged);
+            this.textBoxMonto.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxMonto_Validating);
+            this.textBoxMonto.Validated += new System.EventHandler(this.textBoxMonto_Validated);
             // 
             // label3
             // 
@@ -94,6 +100,9 @@
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(333, 29);
             this.textBoxDesc.TabIndex = 2;
+            this.textBoxDesc.TextChanged += new System.EventHandler(this.textBoxDesc_TextChanged);
+            this.textBoxDesc.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxDesc_Validating);
+            this.textBoxDesc.Validated += new System.EventHandler(this.textBoxDesc_Validated);
             // 
             // label2
             // 
@@ -189,6 +198,10 @@
             this.labelIncidentes.TabIndex = 15;
             this.labelIncidentes.Text = "Incidentes";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormInfraccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -212,6 +225,7 @@
             this.Name = "FormInfraccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Infraccion";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +245,6 @@
         private Button buttonModificar;
         private ListBox listBoxIncidentes;
         private Label labelIncidentes;
+        private ErrorProvider errorProvider;
     }
 }

@@ -294,6 +294,5 @@ namespace UI
             listBoxIncidente.DataSource = dt.Incidentes.Where(i => !dt.tienePagoVinculado(i)).ToList();
             listBoxIncidente.ClearSelected();
         }
-
     }
 }

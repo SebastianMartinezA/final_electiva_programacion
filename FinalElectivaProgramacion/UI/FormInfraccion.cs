@@ -21,6 +21,7 @@ namespace UI
         public FormInfraccion()
         {
             InitializeComponent();
+            this.comboBoxTipo.SelectedIndex = 0;
         }
 
         public FormInfraccion(Infraccion a)
@@ -72,6 +73,7 @@ namespace UI
             this.comboBoxTipo.Enabled = true;
             this.buttonModificar.Visible = false;
             this.buttonConf.Visible = true;
+            this.buttonConf.Enabled = false;
             this.listBoxIncidentes.Visible = false;
             this.labelIncidentes.Visible = false;
         }
@@ -80,6 +82,7 @@ namespace UI
         {
             this.comboBoxTipo.Enabled = false;
             this.buttonModificar.Visible = true;
+            this.buttonModificar.Enabled = false;
             this.buttonConf.Visible = false;
             this.listBoxIncidentes.Visible = false;
             this.labelIncidentes.Visible = false;
@@ -106,6 +109,106 @@ namespace UI
             string patente = ((Incidente)e.ListItem).Vehiculo.Patente;
 
             e.Value = fecha + " | Patente: " + patente;
+        }
+
+        private void textBoxDesc_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(textBoxDesc, String.Empty);
+        }
+
+        private void textBoxDesc_Validating(object sender, CancelEventArgs e)
+        {
+            string desc = textBoxDesc.Text;
+
+            string errorMsg;
+            if (!validDescripcion(desc, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxDesc.Focus();
+
+                this.errorProvider.SetError(textBoxDesc, errorMsg);
+            }
+        }
+
+        private bool validDescripcion(string desc, out string errorMessage)
+        {
+            if (desc.Length == 0)
+            {
+                errorMessage = "La descripcion debe ser ingresada";
+                return false;
+            }
+
+            if (desc.Length < 25)
+            {
+                errorMessage = "";
+                return true;
+            }
+
+            errorMessage = "La descripcion debe ser de 30 caracteres máximo.";
+            return false;
+        }
+
+        private void textBoxMonto_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(textBoxMonto, String.Empty);
+        }
+
+        private void textBoxMonto_Validating(object sender, CancelEventArgs e)
+        {
+            string costo = textBoxMonto.Text;
+
+            string errorMsg;
+            if (!validCosto(costo, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxMonto.Focus();
+
+                this.errorProvider.SetError(textBoxMonto, errorMsg);
+            }
+        }
+
+        private bool validCosto(string costo, out string errorMessage)
+        {
+            if (costo.Length > 8)
+            {
+                errorMessage = "El costo debe ser de 8 dígitos máximo.";
+                return false;
+            }
+
+            // Chequeamos con una regex que es un entero.
+            if (System.Text.RegularExpressions.Regex.IsMatch(costo, "^[0-9]+$"))
+            {
+                errorMessage = "";
+                return true;
+            }
+
+            errorMessage = "El costo debe estar en un formato válido.\n" + "Por ejemplo: '500' ";
+            return false;
+        }
+
+        private void textBoxDesc_TextChanged(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void textBoxMonto_TextChanged(object sender, EventArgs e)
+        {
+            checkInputs();
+        }
+
+        private void checkInputs()
+        {
+            string a;
+            if (validCosto(textBoxMonto.Text, out a) && validDescripcion(textBoxDesc.Text, out a))
+            {
+                buttonConf.Enabled = true;
+                buttonModificar.Enabled = true;
+            }
+            else
+            {
+                buttonConf.Enabled = false;
+                buttonModificar.Enabled = false;
+            }
         }
     }
 }

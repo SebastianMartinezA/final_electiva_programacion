@@ -24,6 +24,7 @@ namespace UI
             InitializeComponent();
             this.comboBoxInfraccion.DataSource = infracciones;
             this.vehiculos = vehiculos;
+            this.comboBoxInfraccion.SelectedIndex = 0;
         }
 
         public FormIncidente(Incidente i, List<Infraccion> infracciones)
@@ -73,6 +74,7 @@ namespace UI
         public void prepararCrear()
         {
             this.buttonConf.Visible = true;
+            this.buttonConf.Enabled = false;
         }
 
         public void prepararMostrar()
@@ -82,6 +84,57 @@ namespace UI
             this.dateTimePickerIncidente.Enabled = false;
             this.comboBoxInfraccion.Enabled = false;
             this.textBoxPatente.Enabled = false;
+        }
+
+        private void textBoxPatente_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(textBoxPatente, String.Empty);
+        }
+
+        private void textBoxPatente_Validating(object sender, CancelEventArgs e)
+        {
+            string patente = textBoxPatente.Text;
+
+            string errorMsg;
+            if (!validPatente(patente, out errorMsg))
+            {
+                e.Cancel = true;
+                textBoxPatente.Focus();
+
+                this.errorProvider.SetError(textBoxPatente, errorMsg);
+            }
+        }
+
+        private bool validPatente(string patente, out string errorMessage)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(patente, "(^[A-Z]{3}[0-9]{3}$)|(^[A-Z]{2}[0-9]{3}[A-Z]{2}$)")) //Patente nueva y vieja
+            {
+                errorMessage = "";
+                return true;
+            }
+
+            errorMessage = "Patente erronea. Debe ser formato ABC123 o AB123CD.";
+            return false;
+        }
+
+
+
+        private void checkInputs()
+        {
+            string a;
+            if (validPatente(textBoxPatente.Text, out a))
+            {
+                buttonConf.Enabled = true;
+            }
+            else
+            {
+                buttonConf.Enabled = false;
+            }
+        }
+
+        private void textBoxPatente_TextChanged(object sender, EventArgs e)
+        {
+            checkInputs();
         }
     }
 }

@@ -5,7 +5,7 @@ namespace UI
     public partial class FormPrincipal : Form
     {
         private DireccionTransito dt;
-
+        private ToolTip tt = new ToolTip();
         public FormPrincipal()
         {
             InitializeComponent();
@@ -233,45 +233,58 @@ namespace UI
             }
             InfraccionLeve.SetDescuento10Dias(defaultDescLeve2);
         }
-
-        private void listBoxIncidente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Incidente inc = (Incidente)listBoxIncidente.SelectedItem;
-            if (inc != null)
-            {
-                ToolTip tt = new ToolTip();
-                tt.SetToolTip(this.buttonPagoIncidente, "La fecha para el pago esta vencida.");
-                if (!inc.verificarVencimiento())
-                {
-                    buttonPagoIncidente.Enabled = false;
-                    tt.Active = true;
-                }
-                else
-                {
-                    buttonPagoIncidente.Enabled = true;
-                    tt.Active = false;
-                }
-            }
-        }
-
         private void listBoxInfraccion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Infraccion inf = (Infraccion)listBoxInfraccion.SelectedItem;
             if (inf != null)
             {
-                ToolTip tt = new ToolTip();
-                tt.IsBalloon = true;
-                tt.SetToolTip(this.buttonElimInfraccion, "La infracción ya tiene un pago vinculado.");
                 if (dt.tienePagoVinculado(inf))
                 {
                     buttonElimInfraccion.Enabled = false;
-                    tt.Active = true;
                 }
                 else
                 {
                     buttonElimInfraccion.Enabled = true;
-                    tt.Active = false;
                 }
+            }
+        }
+        private void panel1_MouseHover(object sender, EventArgs e)
+        {
+            tt.SetToolTip(this.panel1, "La infraccion tiene pagos asociados, no se puede eliminar.");
+            if (buttonElimInfraccion.Enabled == false && listBoxInfraccion.SelectedItem != null)
+            {
+                tt.Active = true;
+            }
+            else
+            {
+                tt.Active = false;
+            }
+        }
+        private void listBoxIncidente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Incidente inc = (Incidente)listBoxIncidente.SelectedItem;
+            if (inc != null)
+            {
+                if (!inc.verificarVencimiento())
+                {
+                    buttonPagoIncidente.Enabled = false;
+                }
+                else
+                {
+                    buttonPagoIncidente.Enabled = true;
+                }
+            }
+        }
+        private void panel2_MouseHover(object sender, EventArgs e)
+        {
+            tt.SetToolTip(this.panel2, "Ya pasaron mas de 30 dias, el pago esta vencido. Por favor comuniquese al 0800 555 4455.");
+            if (buttonPagoIncidente.Enabled == false && listBoxIncidente.SelectedItem != null)
+            {
+                tt.Active = true;
+            }
+            else
+            {
+                tt.Active = false;
             }
         }
 
@@ -281,5 +294,6 @@ namespace UI
             listBoxIncidente.DataSource = dt.Incidentes.Where(i => !dt.tienePagoVinculado(i)).ToList();
             listBoxIncidente.ClearSelected();
         }
+
     }
 }

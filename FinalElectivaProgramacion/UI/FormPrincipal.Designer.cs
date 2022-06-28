@@ -30,9 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listBoxInfraccion = new System.Windows.Forms.ListBox();
             this.buttonMostrarInfraccion = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.buttonElimInfraccion = new System.Windows.Forms.Button();
+            this.listBoxInfraccion = new System.Windows.Forms.ListBox();
             this.buttonModifInfraccion = new System.Windows.Forms.Button();
             this.buttonCrearInfraccion = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -45,11 +46,14 @@
             this.buttonCrearIncidente = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewPagos = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPagos)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -65,9 +69,9 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listBoxInfraccion);
             this.tabPage1.Controls.Add(this.buttonMostrarInfraccion);
-            this.tabPage1.Controls.Add(this.buttonElimInfraccion);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.listBoxInfraccion);
             this.tabPage1.Controls.Add(this.buttonModifInfraccion);
             this.tabPage1.Controls.Add(this.buttonCrearInfraccion);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
@@ -77,6 +81,39 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Infracción";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // buttonMostrarInfraccion
+            // 
+            this.buttonMostrarInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonMostrarInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonMostrarInfraccion.Location = new System.Drawing.Point(56, 199);
+            this.buttonMostrarInfraccion.Name = "buttonMostrarInfraccion";
+            this.buttonMostrarInfraccion.Size = new System.Drawing.Size(185, 58);
+            this.buttonMostrarInfraccion.TabIndex = 3;
+            this.buttonMostrarInfraccion.Text = "Mostrar infraccion";
+            this.buttonMostrarInfraccion.UseVisualStyleBackColor = true;
+            this.buttonMostrarInfraccion.Click += new System.EventHandler(this.buttonMostrarInfraccion_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.buttonElimInfraccion);
+            this.panel1.Location = new System.Drawing.Point(56, 296);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(185, 58);
+            this.panel1.TabIndex = 5;
+            this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
+            // 
+            // buttonElimInfraccion
+            // 
+            this.buttonElimInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonElimInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonElimInfraccion.Location = new System.Drawing.Point(0, 0);
+            this.buttonElimInfraccion.Name = "buttonElimInfraccion";
+            this.buttonElimInfraccion.Size = new System.Drawing.Size(185, 58);
+            this.buttonElimInfraccion.TabIndex = 2;
+            this.buttonElimInfraccion.Text = "Eliminar infraccion";
+            this.buttonElimInfraccion.UseVisualStyleBackColor = true;
+            this.buttonElimInfraccion.Click += new System.EventHandler(this.buttonElimInfraccion_Click);
             // 
             // listBoxInfraccion
             // 
@@ -88,30 +125,6 @@
             this.listBoxInfraccion.TabIndex = 4;
             this.listBoxInfraccion.SelectedIndexChanged += new System.EventHandler(this.listBoxInfraccion_SelectedIndexChanged);
             this.listBoxInfraccion.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxInfraccion_Format);
-            // 
-            // buttonMostrarInfraccion
-            // 
-            this.buttonMostrarInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMostrarInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMostrarInfraccion.Location = new System.Drawing.Point(56, 193);
-            this.buttonMostrarInfraccion.Name = "buttonMostrarInfraccion";
-            this.buttonMostrarInfraccion.Size = new System.Drawing.Size(185, 58);
-            this.buttonMostrarInfraccion.TabIndex = 3;
-            this.buttonMostrarInfraccion.Text = "Mostrar infraccion";
-            this.buttonMostrarInfraccion.UseVisualStyleBackColor = true;
-            this.buttonMostrarInfraccion.Click += new System.EventHandler(this.buttonMostrarInfraccion_Click);
-            // 
-            // buttonElimInfraccion
-            // 
-            this.buttonElimInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonElimInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonElimInfraccion.Location = new System.Drawing.Point(56, 266);
-            this.buttonElimInfraccion.Name = "buttonElimInfraccion";
-            this.buttonElimInfraccion.Size = new System.Drawing.Size(185, 58);
-            this.buttonElimInfraccion.TabIndex = 2;
-            this.buttonElimInfraccion.Text = "Eliminar infraccion";
-            this.buttonElimInfraccion.UseVisualStyleBackColor = true;
-            this.buttonElimInfraccion.Click += new System.EventHandler(this.buttonElimInfraccion_Click);
             // 
             // buttonModifInfraccion
             // 
@@ -139,9 +152,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.textBoxBuscarInc);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.buttonPagoIncidente);
             this.tabPage2.Controls.Add(this.listBoxIncidente);
             this.tabPage2.Controls.Add(this.buttonMostrarIncidente);
             this.tabPage2.Controls.Add(this.buttonElimIncidente);
@@ -177,7 +190,7 @@
             // 
             this.buttonPagoIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPagoIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPagoIncidente.Location = new System.Drawing.Point(56, 225);
+            this.buttonPagoIncidente.Location = new System.Drawing.Point(0, 0);
             this.buttonPagoIncidente.Name = "buttonPagoIncidente";
             this.buttonPagoIncidente.Size = new System.Drawing.Size(185, 58);
             this.buttonPagoIncidente.TabIndex = 9;
@@ -251,6 +264,15 @@
             this.dataGridViewPagos.Size = new System.Drawing.Size(792, 422);
             this.dataGridViewPagos.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.buttonPagoIncidente);
+            this.panel2.Location = new System.Drawing.Point(56, 239);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(185, 58);
+            this.panel2.TabIndex = 12;
+            this.panel2.MouseHover += new System.EventHandler(this.panel2_MouseHover);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -264,10 +286,12 @@
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPagos)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -291,5 +315,7 @@
         private Label label1;
         private Button buttonPagoIncidente;
         private DataGridView dataGridViewPagos;
+        private Panel panel1;
+        private Panel panel2;
     }
 }

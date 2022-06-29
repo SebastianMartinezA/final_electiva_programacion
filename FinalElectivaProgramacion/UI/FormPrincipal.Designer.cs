@@ -90,7 +90,7 @@
             this.buttonMostrarInfraccion.Name = "buttonMostrarInfraccion";
             this.buttonMostrarInfraccion.Size = new System.Drawing.Size(185, 58);
             this.buttonMostrarInfraccion.TabIndex = 3;
-            this.buttonMostrarInfraccion.Text = "Mostrar infraccion";
+            this.buttonMostrarInfraccion.Text = "Mostrar infracción";
             this.buttonMostrarInfraccion.UseVisualStyleBackColor = true;
             this.buttonMostrarInfraccion.Click += new System.EventHandler(this.buttonMostrarInfraccion_Click);
             // 
@@ -111,7 +111,7 @@
             this.buttonElimInfraccion.Name = "buttonElimInfraccion";
             this.buttonElimInfraccion.Size = new System.Drawing.Size(185, 58);
             this.buttonElimInfraccion.TabIndex = 2;
-            this.buttonElimInfraccion.Text = "Eliminar infraccion";
+            this.buttonElimInfraccion.Text = "Eliminar infracción";
             this.buttonElimInfraccion.UseVisualStyleBackColor = true;
             this.buttonElimInfraccion.Click += new System.EventHandler(this.buttonElimInfraccion_Click);
             // 
@@ -134,7 +134,7 @@
             this.buttonModifInfraccion.Name = "buttonModifInfraccion";
             this.buttonModifInfraccion.Size = new System.Drawing.Size(185, 58);
             this.buttonModifInfraccion.TabIndex = 1;
-            this.buttonModifInfraccion.Text = "Modificar infraccion";
+            this.buttonModifInfraccion.Text = "Modificar infracción";
             this.buttonModifInfraccion.UseVisualStyleBackColor = true;
             this.buttonModifInfraccion.Click += new System.EventHandler(this.buttonModifInfraccion_Click);
             // 
@@ -146,7 +146,7 @@
             this.buttonCrearInfraccion.Name = "buttonCrearInfraccion";
             this.buttonCrearInfraccion.Size = new System.Drawing.Size(185, 58);
             this.buttonCrearInfraccion.TabIndex = 0;
-            this.buttonCrearInfraccion.Text = "Crear infraccion";
+            this.buttonCrearInfraccion.Text = "Crear infracción";
             this.buttonCrearInfraccion.UseVisualStyleBackColor = true;
             this.buttonCrearInfraccion.Click += new System.EventHandler(this.buttonCrearInfraccion_Click);
             // 

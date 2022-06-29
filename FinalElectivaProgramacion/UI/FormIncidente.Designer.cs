@@ -86,6 +86,7 @@
             // 
             // textBoxPatente
             // 
+            this.textBoxPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxPatente.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxPatente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxPatente.Location = new System.Drawing.Point(36, 272);

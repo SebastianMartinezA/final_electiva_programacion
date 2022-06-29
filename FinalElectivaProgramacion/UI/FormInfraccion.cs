@@ -138,13 +138,13 @@ namespace UI
                 return false;
             }
 
-            if (desc.Length < 25)
+            if (desc.Length < 51)
             {
                 errorMessage = "";
                 return true;
             }
 
-            errorMessage = "La descripcion debe ser de 30 caracteres máximo.";
+            errorMessage = "La descripcion debe ser de 50 caracteres máximo.";
             return false;
         }
 

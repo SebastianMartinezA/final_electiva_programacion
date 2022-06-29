@@ -37,23 +37,23 @@
             this.buttonModifInfraccion = new System.Windows.Forms.Button();
             this.buttonCrearInfraccion = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonPagoIncidente = new System.Windows.Forms.Button();
             this.textBoxBuscarInc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonPagoIncidente = new System.Windows.Forms.Button();
             this.listBoxIncidente = new System.Windows.Forms.ListBox();
             this.buttonMostrarIncidente = new System.Windows.Forms.Button();
             this.buttonElimIncidente = new System.Windows.Forms.Button();
             this.buttonCrearIncidente = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewPagos = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPagos)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -86,7 +86,7 @@
             // 
             this.buttonMostrarInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMostrarInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMostrarInfraccion.Location = new System.Drawing.Point(56, 199);
+            this.buttonMostrarInfraccion.Location = new System.Drawing.Point(56, 219);
             this.buttonMostrarInfraccion.Name = "buttonMostrarInfraccion";
             this.buttonMostrarInfraccion.Size = new System.Drawing.Size(185, 58);
             this.buttonMostrarInfraccion.TabIndex = 3;
@@ -97,7 +97,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonElimInfraccion);
-            this.panel1.Location = new System.Drawing.Point(56, 296);
+            this.panel1.Location = new System.Drawing.Point(56, 292);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(185, 58);
             this.panel1.TabIndex = 5;
@@ -130,7 +130,7 @@
             // 
             this.buttonModifInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonModifInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonModifInfraccion.Location = new System.Drawing.Point(56, 120);
+            this.buttonModifInfraccion.Location = new System.Drawing.Point(56, 146);
             this.buttonModifInfraccion.Name = "buttonModifInfraccion";
             this.buttonModifInfraccion.Size = new System.Drawing.Size(185, 58);
             this.buttonModifInfraccion.TabIndex = 1;
@@ -142,7 +142,7 @@
             // 
             this.buttonCrearInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCrearInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCrearInfraccion.Location = new System.Drawing.Point(56, 46);
+            this.buttonCrearInfraccion.Location = new System.Drawing.Point(56, 73);
             this.buttonCrearInfraccion.Name = "buttonCrearInfraccion";
             this.buttonCrearInfraccion.Size = new System.Drawing.Size(185, 58);
             this.buttonCrearInfraccion.TabIndex = 0;
@@ -167,6 +167,27 @@
             this.tabPage2.Text = "Incidente";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.buttonPagoIncidente);
+            this.panel2.Location = new System.Drawing.Point(56, 292);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(185, 58);
+            this.panel2.TabIndex = 12;
+            this.panel2.MouseHover += new System.EventHandler(this.panel2_MouseHover);
+            // 
+            // buttonPagoIncidente
+            // 
+            this.buttonPagoIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPagoIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPagoIncidente.Location = new System.Drawing.Point(0, 0);
+            this.buttonPagoIncidente.Name = "buttonPagoIncidente";
+            this.buttonPagoIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonPagoIncidente.TabIndex = 9;
+            this.buttonPagoIncidente.Text = "Registrar pago";
+            this.buttonPagoIncidente.UseVisualStyleBackColor = true;
+            this.buttonPagoIncidente.Click += new System.EventHandler(this.buttonPagoIncidente_Click);
+            // 
             // textBoxBuscarInc
             // 
             this.textBoxBuscarInc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -186,18 +207,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Buscar patente";
             // 
-            // buttonPagoIncidente
-            // 
-            this.buttonPagoIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPagoIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonPagoIncidente.Location = new System.Drawing.Point(0, 0);
-            this.buttonPagoIncidente.Name = "buttonPagoIncidente";
-            this.buttonPagoIncidente.Size = new System.Drawing.Size(185, 58);
-            this.buttonPagoIncidente.TabIndex = 9;
-            this.buttonPagoIncidente.Text = "Registrar pago";
-            this.buttonPagoIncidente.UseVisualStyleBackColor = true;
-            this.buttonPagoIncidente.Click += new System.EventHandler(this.buttonPagoIncidente_Click);
-            // 
             // listBoxIncidente
             // 
             this.listBoxIncidente.FormattingEnabled = true;
@@ -213,7 +222,7 @@
             // 
             this.buttonMostrarIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMostrarIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMostrarIncidente.Location = new System.Drawing.Point(56, 97);
+            this.buttonMostrarIncidente.Location = new System.Drawing.Point(56, 146);
             this.buttonMostrarIncidente.Name = "buttonMostrarIncidente";
             this.buttonMostrarIncidente.Size = new System.Drawing.Size(185, 58);
             this.buttonMostrarIncidente.TabIndex = 7;
@@ -225,7 +234,7 @@
             // 
             this.buttonElimIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonElimIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonElimIncidente.Location = new System.Drawing.Point(56, 161);
+            this.buttonElimIncidente.Location = new System.Drawing.Point(56, 219);
             this.buttonElimIncidente.Name = "buttonElimIncidente";
             this.buttonElimIncidente.Size = new System.Drawing.Size(185, 58);
             this.buttonElimIncidente.TabIndex = 6;
@@ -237,7 +246,7 @@
             // 
             this.buttonCrearIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCrearIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCrearIncidente.Location = new System.Drawing.Point(56, 33);
+            this.buttonCrearIncidente.Location = new System.Drawing.Point(56, 73);
             this.buttonCrearIncidente.Name = "buttonCrearIncidente";
             this.buttonCrearIncidente.Size = new System.Drawing.Size(185, 58);
             this.buttonCrearIncidente.TabIndex = 4;
@@ -264,15 +273,6 @@
             this.dataGridViewPagos.Size = new System.Drawing.Size(792, 422);
             this.dataGridViewPagos.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonPagoIncidente);
-            this.panel2.Location = new System.Drawing.Point(56, 239);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 58);
-            this.panel2.TabIndex = 12;
-            this.panel2.MouseHover += new System.EventHandler(this.panel2_MouseHover);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -280,6 +280,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dirección de Tránsito";
@@ -289,9 +290,9 @@
             this.panel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPagos)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Collections.Generic;
 using System;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 using Negocio;
 

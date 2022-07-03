@@ -1,0 +1,27 @@
+﻿@page
+@model WebApplication1.Pages.BusquedaModel
+@{
+	ViewData["Title"] = "Busqueda por patente";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" class="row g-3 needs-validation" novalidate>
+	<div class="col-md-4">
+        <label for="validationPatente" class="form-label">Patente</label>
+        <input type="text" class="form-control" asp-for="Patente" placeholder="ABC123" required>
+        <span asp-validation-for="Patente" class="text-danger"></span>
+    </div>
+	<div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+                Aceptar terminos y condiciones
+            </label>
+        </div>
+    </div>
+	<div class="col-12">
+		<input type="submit" class="btn btn-primary">
+	</div>
+</form>

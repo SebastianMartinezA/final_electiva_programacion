@@ -44,14 +44,15 @@ namespace Negocio
             int dias = Convert.ToInt32(ts.TotalDays);
 
             double monto = this.Importe;
-            switch (dias)
+
+            if (dias >= 20)
             {
-                case >= 20:
-                    monto = monto * (100 - GetDescuento20Dias()) / 100;
-                    break;
-                case >= 10:
-                    monto = monto * (100 - GetDescuento10Dias()) / 100;
-                    break;
+                monto = monto * (100 - GetDescuento20Dias()) / 100;
+            }
+
+            if (dias >= 10)
+            {
+                monto = monto * (100 - GetDescuento10Dias()) / 100;
             }
 
             return monto;

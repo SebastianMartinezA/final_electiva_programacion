@@ -42,11 +42,16 @@ namespace UI
             Infraccion inf = (Infraccion)this.comboBoxInfraccion.SelectedItem;
             string patente = textBoxPatente.Text;
 
-            Vehiculo? vehi = vehiculos.FirstOrDefault(v => v.Patente == patente);
-            if (vehi == null)
+            Vehiculo vehi;
+
+            bool found = vehiculos.Any(v => v.Patente == patente);
+            if (!found)
             {
                 vehi = new Vehiculo(patente);
                 vehiculos.Add(vehi);
+            } else
+            {
+                vehi = vehiculos.First(v => v.Patente == patente);
             }
 
             inc = new Incidente(0, fecha, inf, vehi);

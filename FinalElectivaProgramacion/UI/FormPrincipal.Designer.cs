@@ -3,12 +3,12 @@
     partial class FormPrincipal
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,8 +23,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -297,26 +297,27 @@
 
         }
 
+
         #endregion
 
-        private TabControl tabControl1;
-        private TabPage tabPage1;
-        private Button buttonMostrarInfraccion;
-        private Button buttonElimInfraccion;
-        private Button buttonModifInfraccion;
-        private Button buttonCrearInfraccion;
-        private TabPage tabPage2;
-        private Button buttonMostrarIncidente;
-        private Button buttonElimIncidente;
-        private Button buttonCrearIncidente;
-        private TabPage tabPage3;
-        private ListBox listBoxInfraccion;
-        private ListBox listBoxIncidente;
-        private TextBox textBoxBuscarInc;
-        private Label label1;
-        private Button buttonPagoIncidente;
-        private DataGridView dataGridViewPagos;
-        private Panel panel1;
-        private Panel panel2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button buttonMostrarInfraccion;
+        private System.Windows.Forms.Button buttonElimInfraccion;
+        private System.Windows.Forms.Button buttonModifInfraccion;
+        private System.Windows.Forms.Button buttonCrearInfraccion;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button buttonMostrarIncidente;
+        private System.Windows.Forms.Button buttonElimIncidente;
+        private System.Windows.Forms.Button buttonCrearIncidente;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ListBox listBoxInfraccion;
+        private System.Windows.Forms.ListBox listBoxIncidente;
+        private System.Windows.Forms.TextBox textBoxBuscarInc;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonPagoIncidente;
+        private System.Windows.Forms.DataGridView dataGridViewPagos;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

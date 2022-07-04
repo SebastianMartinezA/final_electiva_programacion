@@ -1,10 +1,12 @@
-﻿using Datos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Datos;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 
 namespace Negocio
 {
@@ -156,6 +158,25 @@ namespace Negocio
         public bool tienePagoVinculado(Incidente inc)
         {
             return this.pagos.Any(p => p.Incidente.Id == inc.Id);
+        }
+
+        public void generatePDF(int codPago, double monto)
+        {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            PdfDocument doc = new PdfDocument();
+
+            PdfPage page = doc.AddPage();
+
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+
+            XFont font = new XFont("Arial", 20);
+
+            gfx.DrawString("Cupón de pago - " + codPago, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+
+            gfx.DrawString("Monto: " + monto, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+
+            doc.Save("test");
         }
     }
 }

@@ -56,5 +56,10 @@ namespace Negocio
 
             return dias >= 0 && dias <= 30;
         }
+
+        public override string ToString()
+        {
+            return fecha.ToShortDateString() + " | " + infraccion.Descripcion;
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace UI
 
         private void buttonCrearInfraccion_Click(object sender, EventArgs e)
         {
-            FormInfraccion fi = new FormInfraccion();
+            FormInfraccion fi = new FormInfraccion(dt.Infracciones.Select(i => i.Descripcion).ToList());
             fi.prepararCrear();
             fi.ShowDialog();
 

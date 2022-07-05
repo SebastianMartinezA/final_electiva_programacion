@@ -40,16 +40,17 @@ namespace UI
         {
             DateTime fecha = this.dateTimePickerIncidente.Value;
             Infraccion inf = (Infraccion)this.comboBoxInfraccion.SelectedItem;
-            string patente = textBoxPatente.Text;
+            string patente = textBoxPatente.Text.Trim();
 
             Vehiculo vehi;
 
-            bool found = vehiculos.Any(v => v.Patente == patente);
+            bool found = vehiculos.Any(v => v.Patente.ToUpper() == patente);
             if (!found)
             {
                 vehi = new Vehiculo(patente);
                 vehiculos.Add(vehi);
-            } else
+            }
+            else
             {
                 vehi = vehiculos.First(v => v.Patente == patente);
             }
@@ -98,7 +99,7 @@ namespace UI
 
         private void textBoxPatente_Validating(object sender, CancelEventArgs e)
         {
-            string patente = textBoxPatente.Text;
+            string patente = textBoxPatente.Text.Trim();
 
             string errorMsg;
             if (!validPatente(patente, out errorMsg))
@@ -127,7 +128,7 @@ namespace UI
         private void checkInputs()
         {
             string a;
-            if (validPatente(textBoxPatente.Text, out a))
+            if (validPatente(textBoxPatente.Text.Trim(), out a))
             {
                 buttonConf.Enabled = true;
             }

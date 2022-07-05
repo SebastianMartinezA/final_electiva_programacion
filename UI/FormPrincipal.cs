@@ -164,7 +164,7 @@ namespace UI
                 DialogResult dialogResult = MessageBox.Show("Esta seguro que desea realizar el pago correspondiente a $" + monto + " para el incidente seleccionado ?", "Realizar Pago", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    dt.agregarPago(inc, monto);
+                    //dt.agregarPago(inc, monto);
                     MessageBox.Show("Pago realizado satisfactoriamente.");
                 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -141,12 +142,14 @@ namespace Negocio
             this.vehiculos.Add(v);
         }
 
-        public void agregarPago(Incidente inc, double monto)
+        public PdfDocument agregarPago(Incidente inc, double monto)
         {
             Pago pago = new Pago(0, DateTime.Now, inc, monto);
             pago.Id = pago.agregarDb(pago.Fecha, pago.Incidente.Id, pago.Monto);
             pago.Incidente.Vehiculo.agregarPago(pago);
             pagos.Add(pago);
+
+            return generatePDF(pago.Id, inc.Id, monto);
         }
 
         public bool tienePagoVinculado(Infraccion inf)
@@ -160,23 +163,27 @@ namespace Negocio
             return this.pagos.Any(p => p.Incidente.Id == inc.Id);
         }
 
-        public void generatePDF(int codPago, double monto)
+        public PdfDocument generatePDF(int codPago, int codInc, double monto)
         {
-            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            //System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             PdfDocument doc = new PdfDocument();
+            doc.Options.ColorMode = PdfColorMode.Undefined;
+            doc.Info.Title = "Cupón de pago";
 
             PdfPage page = doc.AddPage();
+            page.Width = XUnit.FromMillimeter(200);
+            page.Height = XUnit.FromMillimeter(200);
 
             XGraphics gfx = XGraphics.FromPdfPage(page);
 
             XFont font = new XFont("Arial", 20);
 
-            gfx.DrawString("Cupón de pago - " + codPago, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Incidente número: - " + codInc, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Pago número: - " + codPago, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Monto: $" + monto, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
 
-            gfx.DrawString("Monto: " + monto, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
-
-            doc.Save("test");
+            return doc;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace WebApplication1
             DireccionTransito dt = (DireccionTransito)Session["dt"];
             string patente = TextBoxPatente.Text;
 
-            if (patente != null)
+            if (patente != null && dt != null)
             {
                 bool found = dt.Vehiculos.Any(v => v.Patente == patente);
                 if (found)

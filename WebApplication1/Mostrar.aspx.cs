@@ -19,14 +19,22 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Incidente inc = (Incidente)Session["Incidente"];
-            if (inc == null)
+            string type = ((string)Session["Type"]);
+            if (type == null)
             {
                 loadEmpty();
             }
             else
             {
-                loadIncidente(inc);
+                switch (type)
+                {
+                    case "impago":
+                        loadIncidenteImpago();
+                        break;
+                    case "pago":
+                        loadIncidentePago();
+                        break;
+                }
             }
         }
 
@@ -39,14 +47,28 @@ namespace WebApplication1
             ButtonPagar.Visible = false;
         }
 
-        private void loadIncidente(Incidente inc)
+        private void loadIncidenteImpago()
         {
-            Imagen.ImageUrl = "~/imagenes/vehiculo.png";
+            Page.Title = "Infracción Impaga";
+            Incidente inc = (Incidente)Session["Incidente"];
+
             LabelPatente.Text = inc.Vehiculo.Patente;
             LabelFecha.Text = "Fecha del incidente: " + inc.Fecha.ToString("dd/MM/yyyy");
             LabelDescripcion.Text = "Descripción: " + inc.Infraccion.Descripcion;
             LabelMonto.Text = "Monto: $ " + inc.Infraccion.calcularImporte(inc.Fecha);
             ButtonPagar.Visible = true;
+        }
+
+        private void loadIncidentePago()
+        {
+            Page.Title = "Infracción Paga";
+            Incidente inc = (Incidente)Session["IncidentePago"];
+
+            LabelPatente.Text = inc.Vehiculo.Patente;
+            LabelFecha.Text = "Fecha del incidente: " + inc.Fecha.ToString("dd/MM/yyyy");
+            LabelDescripcion.Text = "Descripción: " + inc.Infraccion.Descripcion;
+            LabelMonto.Text = "Monto: $ " + (double)Session["Monto"];
+            ButtonPagar.Visible = false;
         }
 
         protected void ButtonPagar_Click(object sender, EventArgs e)

@@ -61,5 +61,10 @@ namespace Negocio
         {
             return fecha.ToShortDateString() + " | " + infraccion.Descripcion;
         }
+
+        public bool tienePagoVinculado()
+        {
+            return this.vehiculo.Pagos.Any(p => p.Incidente.Id == this.Id);
+        }
     }
 }

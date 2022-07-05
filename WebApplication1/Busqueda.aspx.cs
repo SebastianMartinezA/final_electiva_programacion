@@ -14,13 +14,12 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             DireccionTransito dt = (DireccionTransito)Session["dt"];
+            LabelImpagos.Visible = false;
             ListBoxIncidentes.Visible = false;
-            ButtonMostrar.Visible = false;
-        }
-
-        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            LabelPagos.Visible = false;
+            ListBoxIncidentesPagos.Visible = false;
+            ButtonMostrarImpago.Visible = false;
+            ButtonMostrarPagado.Visible = false;
         }
 
         protected void ButtonBuscar_Click(object sender, EventArgs e)
@@ -35,27 +34,31 @@ namespace WebApplication1
                 {
                     Vehiculo vehi = dt.Vehiculos.First(v => v.Patente == patente);
                     Session["Vehiculo"] = vehi;
-                    ListBoxIncidentes.DataSource = vehi.Incidentes.Where(i => i.Fecha.AddDays(30) >= DateTime.Today).OrderByDescending(i => i.Fecha);
+                    ListBoxIncidentes.DataSource = vehi.Incidentes.Where(i => !i.tienePagoVinculado() && i.Fecha.AddDays(30) >= DateTime.Today).OrderByDescending(i => i.Fecha).ToList();
                     ListBoxIncidentes.DataBind();
                     ListBoxIncidentes.SelectedIndex = -1;
                     ListBoxIncidentes.Visible = true;
-                    ButtonMostrar.Visible = true;
+                    LabelImpagos.Visible = true;
+                    ListBoxIncidentesPagos.DataSource = vehi.Pagos.Select(p => p.Incidente).OrderByDescending(i => i.Fecha);
+                    ListBoxIncidentesPagos.DataBind();
+                    ListBoxIncidentesPagos.SelectedIndex = -1;
+                    ListBoxIncidentesPagos.Visible = true;
+                    LabelPagos.Visible = true;
+
+                    ButtonMostrarImpago.Visible = true;
+                    ButtonMostrarPagado.Visible = true;
                 }
             }
         }
 
-        protected void ListBoxIncidentes_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ButtonMostrarImpago_Click(object sender, EventArgs e)
         {
-            ButtonMostrar.Enabled = true;
-        }
-
-        protected void ButtonMostrar_Click(object sender, EventArgs e)
-        {
-            List<Incidente> incidentes = ((Vehiculo)Session["Vehiculo"]).Incidentes.Where(i => i.Fecha.AddDays(30) >= DateTime.Today).OrderByDescending(i => i.Fecha).ToList();
-
             if (ListBoxIncidentes.SelectedIndex > -1)
             {
-                Session["Incidente"] = incidentes[ListBoxIncidentes.SelectedIndex];
+                List<Incidente> incidentesImpagos = ((Vehiculo)Session["Vehiculo"]).Incidentes.Where(i => !i.tienePagoVinculado() && i.Fecha.AddDays(30) >= DateTime.Today).OrderByDescending(i => i.Fecha).ToList();
+
+                Session["Type"] = "impago";
+                Session["Incidente"] = incidentesImpagos[ListBoxIncidentes.SelectedIndex];
                 string url = "https://localhost:44394/Mostrar";
                 string script = string.Format("window.open('{0}');", url);
 
@@ -63,7 +66,28 @@ namespace WebApplication1
                     "newPage" + UniqueID, script, true);
             }
 
-            ListBoxIncidentes.ClearSelection();
+            ListBoxIncidentes.SelectedIndex = -1;
+        }
+
+        protected void ButtonMostrarPagado_Click(object sender, EventArgs e)
+        {
+            if (ListBoxIncidentesPagos.SelectedIndex > -1)
+            {
+                List<Pago> incidentesPagos = ((Vehiculo)Session["Vehiculo"]).Pagos.OrderByDescending(p => p.Incidente.Fecha).ToList();
+                Pago pago = incidentesPagos[ListBoxIncidentesPagos.SelectedIndex];
+
+                Session["Type"] = "pago";
+                Session["IncidentePago"] = pago.Incidente;
+                Session["Monto"] = pago.Monto;
+
+                string url = "https://localhost:44394/Mostrar";
+                string script = string.Format("window.open('{0}');", url);
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                    "newPage" + UniqueID, script, true);
+            }
+
+            ListBoxIncidentesPagos.SelectedIndex = -1;
         }
     }
 }

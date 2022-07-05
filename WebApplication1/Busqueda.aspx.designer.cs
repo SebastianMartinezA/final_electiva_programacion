@@ -42,6 +42,24 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.Button ButtonBuscar;
 
         /// <summary>
+        /// Control LabelImpagos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelImpagos;
+
+        /// <summary>
+        /// Control ButtonMostrarImpago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonMostrarImpago;
+
+        /// <summary>
         /// Control ListBoxIncidentes.
         /// </summary>
         /// <remarks>
@@ -51,12 +69,30 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.ListBox ListBoxIncidentes;
 
         /// <summary>
-        /// Control ButtonMostrar.
+        /// Control LabelPagos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonMostrar;
+        protected global::System.Web.UI.WebControls.Label LabelPagos;
+
+        /// <summary>
+        /// Control ButtonMostrarPagado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonMostrarPagado;
+
+        /// <summary>
+        /// Control ListBoxIncidentesPagos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ListBoxIncidentesPagos;
     }
 }

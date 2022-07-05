@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <h2>
-            <asp:Image ID="Imagen" runat="server" Height="39px" Width="65px" />
+            <asp:Image ID="Imagen" runat="server" Height="39px" Width="65px" ImageUrl="~/imagenes/vehiculo.png" />
             <asp:Label ID="LabelPatente" runat="server" Text="Label"></asp:Label>
         </h2>
 

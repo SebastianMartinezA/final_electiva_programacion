@@ -15,13 +15,16 @@ namespace UI
     public partial class FormInfraccion : Form
     {
         private Infraccion inf;
+        // Usamos las descripciones para poder validar si ya existe una infraccion con la ingresada.
+        private List<string> descripciones;
 
         public Infraccion Inf { get => inf; set => inf = value; }
 
-        public FormInfraccion()
+        public FormInfraccion(List<string> descripciones)
         {
             InitializeComponent();
             this.comboBoxTipo.SelectedIndex = 0;
+            this.descripciones = descripciones;
         }
 
         public FormInfraccion(Infraccion a)
@@ -36,7 +39,7 @@ namespace UI
 
         private void buttonConf_Click(object sender, EventArgs e)
         {
-            string desc = this.textBoxDesc.Text;
+            string desc = this.textBoxDesc.Text.Trim();
             string tipo = this.comboBoxTipo.Text;
             double monto = double.Parse(this.textBoxMonto.Text);
 
@@ -55,7 +58,7 @@ namespace UI
         }
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            this.inf.Descripcion = this.textBoxDesc.Text;
+            this.inf.Descripcion = this.textBoxDesc.Text.Trim();
             this.inf.Importe = double.Parse(this.textBoxMonto.Text);
 
             inf.modificarInfraccionDb();
@@ -119,7 +122,7 @@ namespace UI
 
         private void textBoxDesc_Validating(object sender, CancelEventArgs e)
         {
-            string desc = textBoxDesc.Text;
+            string desc = textBoxDesc.Text.Trim();
 
             string errorMsg;
             if (!validDescripcion(desc, out errorMsg))
@@ -136,6 +139,12 @@ namespace UI
             if (desc.Length == 0)
             {
                 errorMessage = "La descripcion debe ser ingresada";
+                return false;
+            }
+
+            if (descripciones.Any(d => d.ToLower() == desc.ToLower()))
+            {
+                errorMessage = "Ya existe una infracción con la misma descripción.";
                 return false;
             }
 
@@ -200,7 +209,7 @@ namespace UI
         private void checkInputs()
         {
             string a;
-            if (validCosto(textBoxMonto.Text, out a) && validDescripcion(textBoxDesc.Text, out a))
+            if (validCosto(textBoxMonto.Text, out a) && validDescripcion(textBoxDesc.Text.Trim(), out a))
             {
                 buttonConf.Enabled = true;
                 buttonModificar.Enabled = true;

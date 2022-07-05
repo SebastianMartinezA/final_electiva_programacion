@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -55,60 +56,50 @@ namespace WebApplication1
             DateTime creationDate = DateTime.Now;
             string name = inc.Id + creationDate.ToString("ddMMyyyyHHmm");
 
-            PdfDocument doc = new PdfDocument();
-            doc.Options.ColorMode = PdfColorMode.Undefined;
-            doc.Info.Title = "Orden de pago - " + name;
-
             if (name.Length % 2 != 0)
             {
                 name = "0" + name;
             }
 
+            PdfDocument doc = new PdfDocument();
+            doc.Options.ColorMode = PdfColorMode.Undefined;
+            doc.Info.Title = "Orden de pago - " + name;
+            doc.Info.Author = "Dirección de Tránsito";
             doc.Info.CreationDate = creationDate;
 
             PdfPage page = doc.AddPage();
-            page.Width = XUnit.FromMillimeter(210);
-            page.Height = XUnit.FromMillimeter(297);
+            page.Size = PdfSharp.PageSize.A4;
 
             XGraphics gfx = XGraphics.FromPdfPage(page);
             XFont font = new XFont("Arial", 20);
 
-            gfx.DrawString("Orden de pago - " + name, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.TopCenter);
-            gfx.DrawString("Monto: $" + monto, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.BottomCenter);
+            gfx.DrawString("Orden de pago - " + name, font, XBrushes.Black, new XPoint(143, 350));
+            gfx.DrawString("Monto: $" + monto, font, XBrushes.Black, new XPoint(143, 375));
 
-            BarCode BarCode39 = new Code2of5Interleaved(name); 
-            BarCode39.TextLocation = new PdfSharp.Drawing.BarCodes.TextLocation();
-            BarCode39.TextLocation = TextLocation.BelowEmbedded;
-            BarCode39.StartChar = Convert.ToChar("*");
-            BarCode39.EndChar = Convert.ToChar("*");
-            BarCode39.Direction = PdfSharp.Drawing.BarCodes.CodeDirection.LeftToRight;
-            XFont fontBARCODE = new XFont("Arial", 14, XFontStyle.Regular);
-            XSize BARCODE_SIZE = new XSize(Convert.ToDouble(297), Convert.ToDouble(66));
-            BarCode39.Size = BARCODE_SIZE;
-            gfx.DrawBarCode(BarCode39, XBrushes.Black, fontBARCODE, new XPoint(Convert.ToDouble(150), Convert.ToDouble(495)));
+            // Codigo de barras
+            BarCode bc39 = new Code2of5Interleaved(name);
+            bc39.TextLocation = TextLocation.BelowEmbedded;
+            bc39.StartChar = Convert.ToChar("*");
+            bc39.EndChar = Convert.ToChar("*");
+            bc39.Direction = CodeDirection.LeftToRight;
+            bc39.Size = new XSize(Convert.ToDouble(297), Convert.ToDouble(66));
+            XFont bcFont = new XFont("Arial", 15, XFontStyle.Regular);
+            gfx.DrawBarCode(bc39, XBrushes.Black, bcFont, new XPoint(Convert.ToDouble(150), Convert.ToDouble(495)));
 
-            // Define a rotation transformation at the center of the page
+            // Transformacion
             gfx.TranslateTransform(page.Width / 2, page.Height / 4);
             gfx.RotateTransform(-Math.Atan(page.Height / page.Width) * 180 / Math.PI);
             gfx.TranslateTransform(-page.Width / 2, -page.Height / 2);
-
-
 
             MemoryStream stream = new MemoryStream();
             doc.Save(stream, false);
             Response.Clear();
             Response.ContentType = "application/pdf";
-            //Response.AddHeader("content-length", stream.Length.ToString());
-            Response.AddHeader("content-disposition", "attachment;filename=cupon-" + name + ".pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=orden-" + name + "-pago.pdf");
             Response.BinaryWrite(stream.ToArray());
             Response.Flush();
             stream.Close();
             Response.End();
-        }
-
-        private void generarPDF()
-        {
-
         }
     }
 }

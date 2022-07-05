@@ -40,7 +40,7 @@ namespace Negocio
             double monto = this.Importe;
             if (dias >= 25)
             {
-                monto = monto * (100 - GetDescuento25Dias()) / 100;
+                return (monto * (100 - GetDescuento25Dias()) / 100);
             }
 
             return monto;

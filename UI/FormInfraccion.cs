@@ -98,8 +98,9 @@ namespace UI
             this.textBoxMonto.Enabled = false;
             this.listBoxIncidentes.Visible = true;
             this.labelIncidentes.Visible = true;
-            this.Size = new Size(700, 461);
+            this.Size = new Size(611, 405);
             this.buttonCancel.Text = "Cerrar";
+            this.listBoxIncidentes.ClearSelected();
         }
 
         private void listBoxIncidentes_Format(object sender, ListControlConvertEventArgs e)

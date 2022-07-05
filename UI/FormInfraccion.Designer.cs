@@ -59,7 +59,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.Location = new System.Drawing.Point(31, 212);
+            this.label4.Location = new System.Drawing.Point(27, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 21);
             this.label4.TabIndex = 12;
@@ -83,7 +83,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label3.Location = new System.Drawing.Point(31, 150);
+            this.label3.Location = new System.Drawing.Point(27, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 21);
             this.label3.TabIndex = 10;
@@ -108,7 +108,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.Location = new System.Drawing.Point(31, 85);
+            this.label2.Location = new System.Drawing.Point(27, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 21);
             this.label2.TabIndex = 8;
@@ -136,10 +136,10 @@
             this.buttonConf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonConf.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonConf.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonConf.Location = new System.Drawing.Point(230, 298);
+            this.buttonConf.Location = new System.Drawing.Point(220, 298);
             this.buttonConf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonConf.Name = "buttonConf";
-            this.buttonConf.Size = new System.Drawing.Size(87, 41);
+            this.buttonConf.Size = new System.Drawing.Size(97, 41);
             this.buttonConf.TabIndex = 4;
             this.buttonConf.Text = "Confirmar";
             this.buttonConf.UseVisualStyleBackColor = false;
@@ -168,10 +168,10 @@
             this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonModificar.Location = new System.Drawing.Point(230, 298);
+            this.buttonModificar.Location = new System.Drawing.Point(220, 298);
             this.buttonModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(87, 41);
+            this.buttonModificar.Size = new System.Drawing.Size(97, 41);
             this.buttonModificar.TabIndex = 13;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = false;
@@ -179,6 +179,7 @@
             // 
             // listBoxIncidentes
             // 
+            this.listBoxIncidentes.Enabled = false;
             this.listBoxIncidentes.FormattingEnabled = true;
             this.listBoxIncidentes.Location = new System.Drawing.Point(372, 40);
             this.listBoxIncidentes.Name = "listBoxIncidentes";
@@ -191,7 +192,7 @@
             // 
             this.labelIncidentes.AutoSize = true;
             this.labelIncidentes.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.labelIncidentes.Location = new System.Drawing.Point(372, 16);
+            this.labelIncidentes.Location = new System.Drawing.Point(367, 12);
             this.labelIncidentes.Name = "labelIncidentes";
             this.labelIncidentes.Size = new System.Drawing.Size(100, 25);
             this.labelIncidentes.TabIndex = 15;
@@ -223,7 +224,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormInfraccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Infraccion";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

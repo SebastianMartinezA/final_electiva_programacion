@@ -200,12 +200,12 @@ namespace UI
             {
                 listBoxIncidente.Items.Add(a);
             }
-            if (string.IsNullOrEmpty(textBoxBuscarInc.Text) == false)
+            if (string.IsNullOrEmpty(textBoxBuscarInc.Text.ToUpper()) == false)
             {
                 listBoxIncidente.Items.Clear();
                 foreach (Incidente a in incedenextaux)
                 {
-                    if (a.Vehiculo.Patente.StartsWith(textBoxBuscarInc.Text))
+                    if (a.Vehiculo.Patente.StartsWith(textBoxBuscarInc.Text.ToUpper()))
                     {
                         listBoxIncidente.Items.Add(a);
                     }

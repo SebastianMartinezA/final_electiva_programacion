@@ -49,10 +49,10 @@
             this.buttonConf.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonConf.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonConf.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonConf.Location = new System.Drawing.Point(230, 298);
+            this.buttonConf.Location = new System.Drawing.Point(220, 298);
             this.buttonConf.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonConf.Name = "buttonConf";
-            this.buttonConf.Size = new System.Drawing.Size(87, 41);
+            this.buttonConf.Size = new System.Drawing.Size(97, 41);
             this.buttonConf.TabIndex = 18;
             this.buttonConf.Text = "Confirmar";
             this.buttonConf.UseVisualStyleBackColor = false;
@@ -78,7 +78,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.Location = new System.Drawing.Point(31, 213);
+            this.label4.Location = new System.Drawing.Point(27, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 21);
             this.label4.TabIndex = 22;
@@ -103,7 +103,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label3.Location = new System.Drawing.Point(31, 149);
+            this.label3.Location = new System.Drawing.Point(27, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 21);
             this.label3.TabIndex = 21;
@@ -113,7 +113,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.Location = new System.Drawing.Point(31, 85);
+            this.label2.Location = new System.Drawing.Point(27, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 21);
             this.label2.TabIndex = 20;

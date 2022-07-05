@@ -64,7 +64,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(686, 390);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -74,10 +74,10 @@
             this.tabPage1.Controls.Add(this.listBoxInfraccion);
             this.tabPage1.Controls.Add(this.buttonModifInfraccion);
             this.tabPage1.Controls.Add(this.buttonCrearInfraccion);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 422);
+            this.tabPage1.Size = new System.Drawing.Size(678, 364);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Infracción";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -85,10 +85,10 @@
             // buttonMostrarInfraccion
             // 
             this.buttonMostrarInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMostrarInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMostrarInfraccion.Location = new System.Drawing.Point(56, 219);
+            this.buttonMostrarInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonMostrarInfraccion.Location = new System.Drawing.Point(48, 190);
             this.buttonMostrarInfraccion.Name = "buttonMostrarInfraccion";
-            this.buttonMostrarInfraccion.Size = new System.Drawing.Size(185, 58);
+            this.buttonMostrarInfraccion.Size = new System.Drawing.Size(159, 50);
             this.buttonMostrarInfraccion.TabIndex = 3;
             this.buttonMostrarInfraccion.Text = "Mostrar infracción";
             this.buttonMostrarInfraccion.UseVisualStyleBackColor = true;
@@ -97,19 +97,19 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonElimInfraccion);
-            this.panel1.Location = new System.Drawing.Point(56, 292);
+            this.panel1.Location = new System.Drawing.Point(48, 253);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(185, 58);
+            this.panel1.Size = new System.Drawing.Size(159, 50);
             this.panel1.TabIndex = 5;
             this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
             // 
             // buttonElimInfraccion
             // 
             this.buttonElimInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonElimInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonElimInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonElimInfraccion.Location = new System.Drawing.Point(0, 0);
             this.buttonElimInfraccion.Name = "buttonElimInfraccion";
-            this.buttonElimInfraccion.Size = new System.Drawing.Size(185, 58);
+            this.buttonElimInfraccion.Size = new System.Drawing.Size(159, 50);
             this.buttonElimInfraccion.TabIndex = 2;
             this.buttonElimInfraccion.Text = "Eliminar infracción";
             this.buttonElimInfraccion.UseVisualStyleBackColor = true;
@@ -118,10 +118,9 @@
             // listBoxInfraccion
             // 
             this.listBoxInfraccion.FormattingEnabled = true;
-            this.listBoxInfraccion.ItemHeight = 15;
-            this.listBoxInfraccion.Location = new System.Drawing.Point(431, 37);
+            this.listBoxInfraccion.Location = new System.Drawing.Point(369, 32);
             this.listBoxInfraccion.Name = "listBoxInfraccion";
-            this.listBoxInfraccion.Size = new System.Drawing.Size(355, 379);
+            this.listBoxInfraccion.Size = new System.Drawing.Size(305, 329);
             this.listBoxInfraccion.TabIndex = 4;
             this.listBoxInfraccion.SelectedIndexChanged += new System.EventHandler(this.listBoxInfraccion_SelectedIndexChanged);
             this.listBoxInfraccion.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxInfraccion_Format);
@@ -129,10 +128,10 @@
             // buttonModifInfraccion
             // 
             this.buttonModifInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonModifInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonModifInfraccion.Location = new System.Drawing.Point(56, 146);
+            this.buttonModifInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonModifInfraccion.Location = new System.Drawing.Point(48, 127);
             this.buttonModifInfraccion.Name = "buttonModifInfraccion";
-            this.buttonModifInfraccion.Size = new System.Drawing.Size(185, 58);
+            this.buttonModifInfraccion.Size = new System.Drawing.Size(159, 50);
             this.buttonModifInfraccion.TabIndex = 1;
             this.buttonModifInfraccion.Text = "Modificar infracción";
             this.buttonModifInfraccion.UseVisualStyleBackColor = true;
@@ -141,10 +140,10 @@
             // buttonCrearInfraccion
             // 
             this.buttonCrearInfraccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCrearInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCrearInfraccion.Location = new System.Drawing.Point(56, 73);
+            this.buttonCrearInfraccion.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonCrearInfraccion.Location = new System.Drawing.Point(48, 63);
             this.buttonCrearInfraccion.Name = "buttonCrearInfraccion";
-            this.buttonCrearInfraccion.Size = new System.Drawing.Size(185, 58);
+            this.buttonCrearInfraccion.Size = new System.Drawing.Size(159, 50);
             this.buttonCrearInfraccion.TabIndex = 0;
             this.buttonCrearInfraccion.Text = "Crear infracción";
             this.buttonCrearInfraccion.UseVisualStyleBackColor = true;
@@ -159,10 +158,10 @@
             this.tabPage2.Controls.Add(this.buttonMostrarIncidente);
             this.tabPage2.Controls.Add(this.buttonElimIncidente);
             this.tabPage2.Controls.Add(this.buttonCrearIncidente);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 422);
+            this.tabPage2.Size = new System.Drawing.Size(678, 364);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Incidente";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -170,19 +169,19 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.buttonPagoIncidente);
-            this.panel2.Location = new System.Drawing.Point(56, 292);
+            this.panel2.Location = new System.Drawing.Point(48, 253);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 58);
+            this.panel2.Size = new System.Drawing.Size(159, 50);
             this.panel2.TabIndex = 12;
             this.panel2.MouseHover += new System.EventHandler(this.panel2_MouseHover);
             // 
             // buttonPagoIncidente
             // 
             this.buttonPagoIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPagoIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPagoIncidente.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonPagoIncidente.Location = new System.Drawing.Point(0, 0);
             this.buttonPagoIncidente.Name = "buttonPagoIncidente";
-            this.buttonPagoIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonPagoIncidente.Size = new System.Drawing.Size(159, 50);
             this.buttonPagoIncidente.TabIndex = 9;
             this.buttonPagoIncidente.Text = "Registrar pago";
             this.buttonPagoIncidente.UseVisualStyleBackColor = true;
@@ -190,18 +189,18 @@
             // 
             // textBoxBuscarInc
             // 
-            this.textBoxBuscarInc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxBuscarInc.Location = new System.Drawing.Point(539, 4);
+            this.textBoxBuscarInc.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.textBoxBuscarInc.Location = new System.Drawing.Point(478, 3);
             this.textBoxBuscarInc.Name = "textBoxBuscarInc";
-            this.textBoxBuscarInc.Size = new System.Drawing.Size(247, 27);
+            this.textBoxBuscarInc.Size = new System.Drawing.Size(196, 27);
             this.textBoxBuscarInc.TabIndex = 11;
             this.textBoxBuscarInc.TextChanged += new System.EventHandler(this.textBoxBuscarInc_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(431, 8);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label1.Location = new System.Drawing.Point(365, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 10;
@@ -210,10 +209,9 @@
             // listBoxIncidente
             // 
             this.listBoxIncidente.FormattingEnabled = true;
-            this.listBoxIncidente.ItemHeight = 15;
-            this.listBoxIncidente.Location = new System.Drawing.Point(431, 37);
+            this.listBoxIncidente.Location = new System.Drawing.Point(369, 32);
             this.listBoxIncidente.Name = "listBoxIncidente";
-            this.listBoxIncidente.Size = new System.Drawing.Size(355, 379);
+            this.listBoxIncidente.Size = new System.Drawing.Size(305, 329);
             this.listBoxIncidente.TabIndex = 8;
             this.listBoxIncidente.SelectedIndexChanged += new System.EventHandler(this.listBoxIncidente_SelectedIndexChanged);
             this.listBoxIncidente.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxIncidente_Format);
@@ -221,10 +219,10 @@
             // buttonMostrarIncidente
             // 
             this.buttonMostrarIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMostrarIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMostrarIncidente.Location = new System.Drawing.Point(56, 146);
+            this.buttonMostrarIncidente.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonMostrarIncidente.Location = new System.Drawing.Point(48, 127);
             this.buttonMostrarIncidente.Name = "buttonMostrarIncidente";
-            this.buttonMostrarIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonMostrarIncidente.Size = new System.Drawing.Size(159, 50);
             this.buttonMostrarIncidente.TabIndex = 7;
             this.buttonMostrarIncidente.Text = "Mostrar incidente";
             this.buttonMostrarIncidente.UseVisualStyleBackColor = true;
@@ -233,10 +231,10 @@
             // buttonElimIncidente
             // 
             this.buttonElimIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonElimIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonElimIncidente.Location = new System.Drawing.Point(56, 219);
+            this.buttonElimIncidente.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonElimIncidente.Location = new System.Drawing.Point(48, 190);
             this.buttonElimIncidente.Name = "buttonElimIncidente";
-            this.buttonElimIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonElimIncidente.Size = new System.Drawing.Size(159, 50);
             this.buttonElimIncidente.TabIndex = 6;
             this.buttonElimIncidente.Text = "Eliminar incidente";
             this.buttonElimIncidente.UseVisualStyleBackColor = true;
@@ -245,10 +243,10 @@
             // buttonCrearIncidente
             // 
             this.buttonCrearIncidente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCrearIncidente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCrearIncidente.Location = new System.Drawing.Point(56, 73);
+            this.buttonCrearIncidente.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.buttonCrearIncidente.Location = new System.Drawing.Point(48, 63);
             this.buttonCrearIncidente.Name = "buttonCrearIncidente";
-            this.buttonCrearIncidente.Size = new System.Drawing.Size(185, 58);
+            this.buttonCrearIncidente.Size = new System.Drawing.Size(159, 50);
             this.buttonCrearIncidente.TabIndex = 4;
             this.buttonCrearIncidente.Text = "Crear incidente";
             this.buttonCrearIncidente.UseVisualStyleBackColor = true;
@@ -257,9 +255,9 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridViewPagos);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(792, 422);
+            this.tabPage3.Size = new System.Drawing.Size(678, 364);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Pago";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -270,14 +268,14 @@
             this.dataGridViewPagos.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewPagos.Name = "dataGridViewPagos";
             this.dataGridViewPagos.RowTemplate.Height = 25;
-            this.dataGridViewPagos.Size = new System.Drawing.Size(792, 422);
+            this.dataGridViewPagos.Size = new System.Drawing.Size(679, 366);
             this.dataGridViewPagos.TabIndex = 0;
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

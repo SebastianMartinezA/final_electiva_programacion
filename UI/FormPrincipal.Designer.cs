@@ -264,9 +264,16 @@
             // 
             // dataGridViewPagos
             // 
+            this.dataGridViewPagos.AllowUserToAddRows = false;
+            this.dataGridViewPagos.AllowUserToDeleteRows = false;
+            this.dataGridViewPagos.AllowUserToResizeColumns = false;
+            this.dataGridViewPagos.AllowUserToResizeRows = false;
+            this.dataGridViewPagos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewPagos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridViewPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPagos.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewPagos.Name = "dataGridViewPagos";
+            this.dataGridViewPagos.ReadOnly = true;
             this.dataGridViewPagos.RowTemplate.Height = 25;
             this.dataGridViewPagos.Size = new System.Drawing.Size(679, 366);
             this.dataGridViewPagos.TabIndex = 0;

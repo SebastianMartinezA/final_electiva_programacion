@@ -47,12 +47,12 @@ namespace Negocio
 
             if (dias >= 20)
             {
-                monto = monto * (100 - GetDescuento20Dias()) / 100;
+                return (monto * (100 - GetDescuento20Dias()) / 100);
             }
 
             if (dias >= 10)
             {
-                monto = monto * (100 - GetDescuento10Dias()) / 100;
+                return (monto * (100 - GetDescuento10Dias()) / 100);
             }
 
             return monto;

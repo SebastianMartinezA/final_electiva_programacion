@@ -2,7 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h3>Contacto</h3>
+        <h3>
+            <asp:Image ID="contacto" ImageUrl="~/imagenes/contacto.png" runat="server" Height="30px" Width="30px" />
+            Contacto
+        </h3>
 
         <br />
 

@@ -36,6 +36,7 @@ namespace WebApplication1
             LabelMonto.Visible = false;
             LabelFecha.Visible = false;
             LabelPatente.Visible = false;
+            ButtonPagar.Visible = false;
         }
 
         private void loadIncidente(Incidente inc)

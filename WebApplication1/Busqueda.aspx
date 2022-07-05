@@ -2,7 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <h3>Ingrese su patente</h3>
+        <h3>
+            <asp:Image ID="patente" ImageUrl="~/imagenes/patente.png" runat="server" Height="25px" Width="70px" />
+            Ingrese su patente
+        </h3>
 
         <br />
 

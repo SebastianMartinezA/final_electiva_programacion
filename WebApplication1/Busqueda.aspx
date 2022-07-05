@@ -9,7 +9,7 @@
 
         <br />
 
-        <asp:TextBox class="form-control form-control-lg" ID="TextBoxPatente" runat="server" Height="40px" Width="230px"></asp:TextBox>
+        <asp:TextBox class="form-control form-control-lg" ID="TextBoxPatente" runat="server" Height="40px" Width="230px" font-size="Medium" style='text-transform:uppercase'></asp:TextBox>
 
         <br />
         <br />

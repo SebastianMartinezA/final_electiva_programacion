@@ -15,7 +15,7 @@
 
         <address>
             <strong>Matias Leonel Garcia:</strong>   <a href="mailto:matu.garcia@hotmail.com.ar">matu.garcia@hotmail.com.ar</a><br />
-            <strong>Sebastian Martinez:</strong> <a href="mailto:sebastianmartinez@hotmail.com">sebastianmartinez@hotmail.com</a>
+            <strong>Sebastian Martinez:</strong> <a href="mailto:sebastianmartinez@hotmail.com">smartinezamaray@gmail.com</a>
         </address>
     </div>
 </asp:Content>

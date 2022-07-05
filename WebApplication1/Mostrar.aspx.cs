@@ -58,6 +58,12 @@ namespace WebApplication1
             PdfDocument doc = new PdfDocument();
             doc.Options.ColorMode = PdfColorMode.Undefined;
             doc.Info.Title = "Orden de pago - " + name;
+
+            if (name.Length % 2 != 0)
+            {
+                name = "0" + name;
+            }
+
             doc.Info.CreationDate = creationDate;
 
             PdfPage page = doc.AddPage();
@@ -70,22 +76,21 @@ namespace WebApplication1
             gfx.DrawString("Orden de pago - " + name, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.TopCenter);
             gfx.DrawString("Monto: $" + monto, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.BottomCenter);
 
-            //Code2of5Interleaved bc25 = new Code2of5Interleaved();
-            //bc25.Text = name;
-            //bc25.Size = new XSize(90, 30);
-            //bc25.TextLocation = TextLocation.Above;
+            BarCode BarCode39 = new Code2of5Interleaved(name); 
+            BarCode39.TextLocation = new PdfSharp.Drawing.BarCodes.TextLocation();
+            BarCode39.TextLocation = TextLocation.BelowEmbedded;
+            BarCode39.StartChar = Convert.ToChar("*");
+            BarCode39.EndChar = Convert.ToChar("*");
+            BarCode39.Direction = PdfSharp.Drawing.BarCodes.CodeDirection.LeftToRight;
+            XFont fontBARCODE = new XFont("Arial", 14, XFontStyle.Regular);
+            XSize BARCODE_SIZE = new XSize(Convert.ToDouble(297), Convert.ToDouble(66));
+            BarCode39.Size = BARCODE_SIZE;
+            gfx.DrawBarCode(BarCode39, XBrushes.Black, fontBARCODE, new XPoint(Convert.ToDouble(150), Convert.ToDouble(495)));
 
-            //gfx.DrawBarCode(bc25, XBrushes.DarkBlue, new XPoint(10, 10));
-
-            //bc25.Direction = CodeDirection.RightToLeft;
-            //gfx.DrawBarCode(bc25, XBrushes.DarkBlue, new XPoint(30, 10));
-
-            //bc25.Direction = CodeDirection.TopToBottom;
-            //gfx.DrawBarCode(bc25, XBrushes.DarkBlue, new XPoint(10, 30));
-
-            //bc25.Direction = CodeDirection.BottomToTop;
-            //gfx.DrawBarCode(bc25, XBrushes.Red, new XPoint(30, 30));
-            //make sure the font is embedded
+            // Define a rotation transformation at the center of the page
+            gfx.TranslateTransform(page.Width / 2, page.Height / 4);
+            gfx.RotateTransform(-Math.Atan(page.Height / page.Width) * 180 / Math.PI);
+            gfx.TranslateTransform(-page.Width / 2, -page.Height / 2);
 
 
 

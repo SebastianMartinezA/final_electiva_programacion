@@ -40,11 +40,12 @@ namespace WebApplication1
 
         private void loadIncidente(Incidente inc)
         {
+            Imagen.ImageUrl = "~/imagenes/vehiculo.png";
             LabelPatente.Text = inc.Vehiculo.Patente;
-            LabelFecha.Text = inc.Fecha.ToShortTimeString();
-            LabelDescripcion.Text = inc.Infraccion.Descripcion;
+            LabelFecha.Text = "Fecha del incidente: " + inc.Fecha.ToString("dd/MM/yyyy");
+            LabelDescripcion.Text = "Descripción: " + inc.Infraccion.Descripcion;
+            LabelMonto.Text = "Monto: $ " + inc.Infraccion.calcularImporte(inc.Fecha);
             ButtonPagar.Visible = true;
-            LabelMonto.Text = "$ " + inc.Infraccion.calcularImporte(inc.Fecha);
         }
 
         protected void ButtonPagar_Click(object sender, EventArgs e)

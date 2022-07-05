@@ -15,7 +15,7 @@ namespace WebApplication1
         {
             DireccionTransito dt = (DireccionTransito)Session["dt"];
             ListBoxIncidentes.Visible = false;
-            ButtonSiguiente.Visible = false;
+            ButtonMostrar.Visible = false;
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,36 +34,36 @@ namespace WebApplication1
                 if (found)
                 {
                     Vehiculo vehi = dt.Vehiculos.First(v => v.Patente == patente);
-                    Session["vehi"] = vehi;
-                    ListBoxIncidentes.DataSource = vehi.Incidentes.OrderByDescending(i => i.Fecha);
+                    Session["Vehiculo"] = vehi;
+                    ListBoxIncidentes.DataSource = vehi.Incidentes.Where(i => i.Fecha.AddDays(30) >= DateTime.Today).OrderByDescending(i => i.Fecha);
                     ListBoxIncidentes.DataBind();
                     ListBoxIncidentes.SelectedIndex = -1;
                     ListBoxIncidentes.Visible = true;
-                    ButtonSiguiente.Visible = true;
+                    ButtonMostrar.Visible = true;
                 }
             }
         }
 
         protected void ListBoxIncidentes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ButtonSiguiente.Enabled = true;
+            ButtonMostrar.Enabled = true;
         }
 
-        protected void ButtonSiguiente_Click(object sender, EventArgs e)
+        protected void ButtonMostrar_Click(object sender, EventArgs e)
         {
-            List<Incidente> incidentes = ((Vehiculo)Session["vehi"]).Incidentes.OrderByDescending(i => i.Fecha).ToList();
+            List<Incidente> incidentes = ((Vehiculo)Session["Vehiculo"]).Incidentes.Where(i => i.Fecha.AddDays(30) >= DateTime.Today).OrderByDescending(i => i.Fecha).ToList();
 
-            if (ListBoxIncidentes.SelectedIndex > 0)
+            if (ListBoxIncidentes.SelectedIndex > -1)
             {
                 Session["Incidente"] = incidentes[ListBoxIncidentes.SelectedIndex];
-                string url = "https://localhost:44394//Mostrar";
+                string url = "https://localhost:44394/Mostrar";
                 string script = string.Format("window.open('{0}');", url);
 
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
                     "newPage" + UniqueID, script, true);
             }
 
-
+            ListBoxIncidentes.ClearSelection();
         }
     }
 }

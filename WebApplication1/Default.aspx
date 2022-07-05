@@ -1,26 +1,47 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication1._Default" %>
+﻿<%@ Page Title="Dirección de Tránsito" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication1._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
     <div class="jumbotron">
-        <h1>Direccion de Transito</h1>
-        <p class="lead">La Dirección de Tránsito es una dirección de la Policía Nacional de Argentina​ cuyo fin primordial es de ejercer control de las normas de tránsito y brindar seguridad y tranquilidad a los usuarios de la red vial nacional de Argentina tanto Urbana como Rural.</p>
-        <p><a class="btn btn-info" href="https://www.argentina.gob.ar/seguridadvial" target="_blank">Aprenda mas &raquo;</a></p>
+        <h2>Exámen Final - Electiva de Programación</h2>
+
+        <br />
+
+        <h4>INFRACCIONES DE TRÁNSITO</h4>
+
+        <br />
+
+        <p style="font-size:110%;">El sistema debe administrar el registro y pago de infracciones de tránsito cometidas por los
+            automovilistas. De las infracciones se conoce su código, la descripción de la misma y el
+            importe correspondiente. Para registrar una infracción es necesario conocer el dominio del
+            vehículo y la fecha del suceso. La fecha de vencimiento para el pago de una infracción es 30
+            días después de cometida la misma. Las infracciones leves tienen un 25 % de descuento si se
+            pagan 20 días antes de su vencimiento y un 15% si se pagan 10 días antes. Las infracciones
+            graves sólo tienen un 20% de descuento si se pagan 25 días antes de su vencimiento.
+        </p>
+
+        <br />
+
+        <p style="font-size:110%;">
+            Realizar una aplicación de escritorio que mínimamente permita:
+        </p>
+        <ol>
+            <li>Agregar y/o modificar un tipo de infracción.</li>
+            <li>Registrar una infracción cometida por un vehículo.</li>
+            <li>Realizar el pago de una infracción.</li>
+        </ol>
+
+        <br />
+
+        <p style="font-size:110%;">
+            Realizar una aplicación Web que permita al dueño de un vehículo consultar si posee
+            infracciones pagas y/o impagas. En el caso de tener infracciones impagas, generar un pdf con
+            la orden de pago correspondiente.
+
+            Mantener la persistencia de datos con base de datos.
+        </p>
     </div>
 
     <div class="row">
-        <div class="col-md-12">
-            <h2>Multas</h2>
-            <p>
-                Esta pagina le permite abonar las multas que ustedes haya recibido. Mediante un simple proceso se le genera
-                un cupon de pago en formato PDF que le permitira pagar su multa en cualquier PagoFacil, RapiPago o Bapro del pais.
-                Tambien puede pagarlo mediante billetera electronica ya sea TAP, MercadoPago, Bimo, etc.                
-            </p>
-            <p>
-                <a class="btn btn-secondary" href="/Busqueda">Generar PDF &raquo;</a>
-                <a class="btn btn-secondary" href="https://www.mercadopago.com.ar/ayuda/pago-de-servicios_4874" target="_blank">MercadoPago &raquo;</a>
-            </p>
-        </div>
         <%--<div class="col-md-4">
             <h2>Get more libraries</h2>
             <p>
@@ -40,5 +61,4 @@
             </p>
         </div>--%>
     </div>
-
 </asp:Content>

@@ -42,12 +42,12 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.ListBox ListBoxIncidentes;
 
         /// <summary>
-        /// Control ButtonSiguiente.
+        /// Control ButtonMostrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonSiguiente;
+        protected global::System.Web.UI.WebControls.Button ButtonMostrar;
     }
 }

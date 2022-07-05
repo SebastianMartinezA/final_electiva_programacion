@@ -14,7 +14,8 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             DireccionTransito dt = (DireccionTransito)Session["dt"];
-            ButtonSiguiente.Enabled = true;
+            ListBoxIncidentes.Visible = false;
+            ButtonSiguiente.Visible = false;
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,6 +38,8 @@ namespace WebApplication1
                     ListBoxIncidentes.DataSource = vehi.Incidentes.OrderByDescending(i => i.Fecha);
                     ListBoxIncidentes.DataBind();
                     ListBoxIncidentes.SelectedIndex = -1;
+                    ListBoxIncidentes.Visible = true;
+                    ButtonSiguiente.Visible = true;
                 }
             }
         }
@@ -50,13 +53,17 @@ namespace WebApplication1
         {
             List<Incidente> incidentes = ((Vehiculo)Session["vehi"]).Incidentes.OrderByDescending(i => i.Fecha).ToList();
 
-            Session["Incidente"] = incidentes[ListBoxIncidentes.SelectedIndex];
+            if (ListBoxIncidentes.SelectedIndex > 0)
+            {
+                Session["Incidente"] = incidentes[ListBoxIncidentes.SelectedIndex];
+                string url = "https://localhost:44394//Mostrar";
+                string script = string.Format("window.open('{0}');", url);
 
-            string url = "https://localhost:44394//Mostrar";
-            string script = string.Format("window.open('{0}');", url);
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                    "newPage" + UniqueID, script, true);
+            }
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "newPage" + UniqueID, script, true);
+
         }
     }
 }

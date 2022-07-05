@@ -123,8 +123,6 @@ namespace UI
             return false;
         }
 
-
-
         private void checkInputs()
         {
             string a;

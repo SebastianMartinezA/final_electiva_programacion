@@ -24,6 +24,7 @@ namespace UI
             listBoxInfraccion.ClearSelected();
             refreshListBoxIncidentes();
             dataGridViewPagos.DataSource = dt.Pagos.Select(p => new { ID = p.Id, Fecha = p.Fecha.ToShortDateString(), Incidente = p.Incidente.Infraccion.Descripcion, Monto = "$" + p.Monto }).ToList();
+            comboBoxFilter.SelectedIndex = 0;
         }
 
         private void buttonCrearInfraccion_Click(object sender, EventArgs e)
@@ -195,19 +196,44 @@ namespace UI
         {
             listBoxIncidente.DataSource = null;
             List<Incidente> incedenextaux = dt.Incidentes.Where(i => !dt.tienePagoVinculado(i)).ToList();
-
             foreach (Incidente a in incedenextaux)
             {
                 listBoxIncidente.Items.Add(a);
             }
             if (string.IsNullOrEmpty(textBoxBuscarInc.Text.ToUpper()) == false)
             {
-                listBoxIncidente.Items.Clear();
-                foreach (Incidente a in incedenextaux)
+                if (comboBoxFilter.Text == "Patente")
                 {
-                    if (a.Vehiculo.Patente.StartsWith(textBoxBuscarInc.Text.ToUpper()))
+                    listBoxIncidente.Items.Clear();
+                    foreach (Incidente a in incedenextaux)
                     {
-                        listBoxIncidente.Items.Add(a);
+                        if (a.Vehiculo.Patente.StartsWith(textBoxBuscarInc.Text.ToUpper()))
+                        {
+                            listBoxIncidente.Items.Add(a);
+                        }
+                    }
+                }
+                else if (comboBoxFilter.Text == "Fecha")
+                {
+                    listBoxIncidente.Items.Clear();
+                    foreach (Incidente a in incedenextaux)
+                    {
+                        string aaa = a.Fecha.ToString("dd/MM/yy");
+                        if (a.Fecha.ToString("dd/MM/yy").StartsWith(textBoxBuscarInc.Text) || a.Fecha.ToShortDateString().StartsWith(textBoxBuscarInc.Text))
+                        {
+                            listBoxIncidente.Items.Add(a);
+                        }
+                    }
+                }
+                else if (comboBoxFilter.Text == "Infraccion")
+                {
+                    listBoxIncidente.Items.Clear();
+                    foreach (Incidente a in incedenextaux)
+                    {
+                        if (a.Infraccion.Descripcion.ToLower().StartsWith(textBoxBuscarInc.Text.ToLower()))
+                        {
+                            listBoxIncidente.Items.Add(a);
+                        }
                     }
                 }
             }

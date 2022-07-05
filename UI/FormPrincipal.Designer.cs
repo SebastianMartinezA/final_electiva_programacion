@@ -47,6 +47,7 @@
             this.buttonCrearIncidente = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewPagos = new System.Windows.Forms.DataGridView();
+            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -151,6 +152,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBoxFilter);
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.textBoxBuscarInc);
             this.tabPage2.Controls.Add(this.label1);
@@ -190,9 +192,9 @@
             // textBoxBuscarInc
             // 
             this.textBoxBuscarInc.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.textBoxBuscarInc.Location = new System.Drawing.Point(478, 3);
+            this.textBoxBuscarInc.Location = new System.Drawing.Point(514, 3);
             this.textBoxBuscarInc.Name = "textBoxBuscarInc";
-            this.textBoxBuscarInc.Size = new System.Drawing.Size(196, 27);
+            this.textBoxBuscarInc.Size = new System.Drawing.Size(160, 27);
             this.textBoxBuscarInc.TabIndex = 11;
             this.textBoxBuscarInc.TextChanged += new System.EventHandler(this.textBoxBuscarInc_TextChanged);
             // 
@@ -202,9 +204,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label1.Location = new System.Drawing.Point(365, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
+            this.label1.Size = new System.Drawing.Size(52, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Buscar patente";
+            this.label1.Text = "Buscar";
             // 
             // listBoxIncidente
             // 
@@ -278,6 +280,20 @@
             this.dataGridViewPagos.Size = new System.Drawing.Size(679, 366);
             this.dataGridViewPagos.TabIndex = 0;
             // 
+            // comboBoxFilter
+            // 
+            this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.comboBoxFilter.FormattingEnabled = true;
+            this.comboBoxFilter.Items.AddRange(new object[] {
+            "Patente",
+            "Infraccion",
+            "Fecha"});
+            this.comboBoxFilter.Location = new System.Drawing.Point(416, 3);
+            this.comboBoxFilter.Name = "comboBoxFilter";
+            this.comboBoxFilter.Size = new System.Drawing.Size(92, 28);
+            this.comboBoxFilter.TabIndex = 13;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,5 +340,6 @@
         private System.Windows.Forms.DataGridView dataGridViewPagos;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBoxFilter;
     }
 }
